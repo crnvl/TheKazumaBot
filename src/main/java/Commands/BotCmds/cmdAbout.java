@@ -26,6 +26,7 @@ public class cmdAbout implements Command {
                         .addField("Commandlist", STATIC.PREFIX + "help", true)
                         .addField("Invite me!", "[Add To Your Server](https://discordapp.com/api/oauth2/authorize?client_id=406097711603908621&permissions=21469585838&scope=bot)", true)
                         .addField("Vote for me!", "[Vote on discordbots.org](https://discordbots.org/bot/406097711603908621)", false)
+                        .addField("GitHub", "https://github.com/shinixsensei-dev/TheKazumaBot", true)
                         .setFooter("Kazuma is a project by MIYAKI Development. Copyright Owner is "  + event.getJDA().getUserById("265849018662387712").getName() + "#" + event.getJDA().getUserById("265849018662387712").getDiscriminator(), null)
                         .build()).queue();
     }
