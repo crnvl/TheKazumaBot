@@ -3,6 +3,7 @@ package Listeners.Loader;
 import Listeners.Announcements.MemberChangeListener;
 import Listeners.Cmd.CommandListener;
 import Listeners.Logs.AuditLogListener;
+import Listeners.Private.PrivateResponder;
 import net.dv8tion.jda.core.events.ReadyEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
@@ -19,3 +20,4 @@ public class RegisterListener extends ListenerAdapter {
                             "Added " + event.getJDA().getRegisteredListeners().size() + " Listener(s)");
     }
 }
+
