@@ -9,6 +9,7 @@ import Commands.Fun.cmdRateWaifu;
 import Commands.Kawaii.*;
 import Commands.Language.cmdJapanese;
 import Commands.Moderation.cmdSetAnnouncementChannel;
+import Commands.Moderation.cmdSetAutorole;
 import Commands.Moderation.cmdSetJoinMessage;
 import Commands.Moderation.cmdSetLeaveMessage;
 import Commands.cmdHelp;
@@ -36,7 +37,6 @@ public class Main {
 
         //Listeners
         builder.addEventListener(new RegisterListener());
-
 
         addCommands();
 
@@ -87,6 +87,7 @@ public class Main {
         CommandHandler.commands.put("setjoinmessage", new cmdSetJoinMessage());
         CommandHandler.commands.put("announcechannel", new cmdSetAnnouncementChannel());
         CommandHandler.commands.put("setleavemessage", new cmdSetLeaveMessage());
+        CommandHandler.commands.put("setautorole", new cmdSetAutorole());
 
     }
 
