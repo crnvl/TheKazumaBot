@@ -318,7 +318,7 @@ public class cmdHelp implements Command {
 
                             new EmbedBuilder()
                                     .setTitle("Command information")
-                                    .setDescription("Usage: ``" + STATIC.PREFIX + args[0] + " <mention>``")
+                                    .setDescription("Usage: ``" + STATIC.PREFIX + args[0] + " <message>``")
                                     .addField("Required Permission", "``MANAGE_SERVER``", false)
                                     .addField("Category", "``Moderation Commands``", false)
                                     .addField("Aliases", "``/``", false)
@@ -333,7 +333,7 @@ public class cmdHelp implements Command {
 
                             new EmbedBuilder()
                                     .setTitle("Command information")
-                                    .setDescription("Usage: ``" + STATIC.PREFIX + args[0] + " <mention>``")
+                                    .setDescription("Usage: ``" + STATIC.PREFIX + args[0] + " <#channel>``")
                                     .addField("Required Permission", "``MANAGE_SERVER``", false)
                                     .addField("Category", "``Moderation Commands``", false)
                                     .addField("Aliases", "``/``", false)
@@ -347,7 +347,7 @@ public class cmdHelp implements Command {
 
                             new EmbedBuilder()
                                     .setTitle("Command information")
-                                    .setDescription("Usage: ``" + STATIC.PREFIX + args[0] + " <mention>``")
+                                    .setDescription("Usage: ``" + STATIC.PREFIX + args[0] + " <message>``")
                                     .addField("Required Permission", "``MANAGE_SERVER``", false)
                                     .addField("Category", "``Moderation Commands``", false)
                                     .addField("Aliases", "``/``", false)
@@ -362,7 +362,7 @@ public class cmdHelp implements Command {
 
                             new EmbedBuilder()
                                     .setTitle("Command information")
-                                    .setDescription("Usage: ``" + STATIC.PREFIX + args[0] + " <mention>``")
+                                    .setDescription("Usage: ``" + STATIC.PREFIX + args[0] + " <@role>``")
                                     .addField("Required Permission", "``MANAGE_SERVER``", false)
                                     .addField("Category", "``Moderation Commands``", false)
                                     .addField("Aliases", "``/``", false)
