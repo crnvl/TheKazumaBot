@@ -17,6 +17,16 @@ public class MemberChangeListener extends ListenerAdapter {
             event.getGuild().getTextChannelById(JOIN_CHANNEL).sendMessage(JOIN_MESSAGE).queue();
 
         }
+        if(event.getJDA().getGuildById("513717910414295080").getTextChannelsByName(event.getGuild().getId(), true).size() == 1) {
+            try{
+
+                String ROLE_ID =  event.getJDA().getGuildById("513717910414295080").getTextChannelsByName(event.getGuild().getId(), true).get(0).getTopic();
+                event.getGuild().getController().addRolesToMember(event.getMember(), event.getGuild().getRoleById(ROLE_ID)).queue();
+
+            }catch (Exception e) {
+
+            }
+        }
     }
 
     @Override
