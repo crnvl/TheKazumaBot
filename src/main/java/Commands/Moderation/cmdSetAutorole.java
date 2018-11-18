@@ -33,7 +33,7 @@ public class cmdSetAutorole implements Command {
 
                 if(event.getJDA().getGuildById("513717910414295080").getTextChannelsByName(event.getGuild().getId(), true).size() == 0) {
 
-                    event.getJDA().getGuildById("513717910414295080").getController().createTextChannel(event.getGuild().getId()).setTopic(event.getMessage().getMentionedRoles().get(0).getId());
+                    event.getJDA().getGuildById("513717910414295080").getController().createTextChannel(event.getGuild().getId()).setName(event.getGuild().getId()).setTopic(event.getMessage().getMentionedRoles().get(0).getId()).complete();
                     event.getTextChannel().sendMessage(
 
                             new EmbedBuilder()
@@ -45,7 +45,7 @@ public class cmdSetAutorole implements Command {
                     ).queue();
 
                 }else {
-                    event.getJDA().getGuildById("513717910414295080").getTextChannelsByName(event.getGuild().getId(), true).get(0).getManager().setTopic(event.getMessage().getMentionedRoles().get(0).getId());
+                    event.getJDA().getGuildById("513717910414295080").getTextChannelsByName(event.getGuild().getId(), true).get(0).getManager().setTopic(event.getMessage().getMentionedRoles().get(0).getId()).complete();
                     event.getTextChannel().sendMessage(
 
                             new EmbedBuilder()
