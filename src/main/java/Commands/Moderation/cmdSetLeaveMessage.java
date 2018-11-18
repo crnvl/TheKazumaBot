@@ -24,14 +24,40 @@ public class cmdSetLeaveMessage implements Command {
 
                         new EmbedBuilder()
                                 .setTitle("Command Usage")
-                                .setDescription("Use ``" + STATIC.PREFIX + "setleavemessage <your leave meesage>`` to set a new Leave Message for this Server")
+                                .setDescription("Use ``" + STATIC.PREFIX + "setleavemessage <your leave message>`` to set a new Leave Message for this Server")
                                 .addField("Example", "``" + STATIC.PREFIX + "setleavemessage %USER% left %SERVER%! We are now %MEMBERCOUNT% Users here!``", true)
                                 .addField("Attributes", "``%SERVER%`` shows the server name\n" +
                                         "``%USER%`` gets a mention of the user\n" +
                                         "``&MEMBERCOUNT%`` will show the current membercount of the server", true)
+                                .addField("Deactivate Leave Message", "Use ``" + STATIC.PREFIX + "setleavemessage disable``", false)
                                 .build()
 
                 ).queue();
+
+            }else if(args[0].contains("disable")) {
+
+                try{
+
+                    event.getJDA().getGuildById("513297201666064390").getTextChannelsByName(event.getGuild().getId(), true).get(0).getManager().setTopic("").queue();
+
+                    event.getTextChannel().sendMessage(
+
+                            new EmbedBuilder()
+                                    .setTitle("Leave Message disabled!")
+                                    .setDescription("Your Leave Message has been disabled successfully!")
+                                    .build()
+
+                    ).queue();
+                }catch (Exception e) {
+                    event.getTextChannel().sendMessage(
+
+                            new EmbedBuilder()
+                                    .setTitle("Error")
+                                    .setDescription("There was no Leave Message that could have be disabled!")
+                                    .build()
+
+                    ).queue();
+                }
 
             }else {
 
