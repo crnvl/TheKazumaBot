@@ -21,7 +21,7 @@ public class cmdHelp implements Command {
                             .setTitle("Commandlist")
                             .setDescription("This is a list of all my current commands! My Prefix is " + STATIC.PREFIX)
                             .addField("Bot Commands", "``about``, ``db``, ``discordbots``", true)
-                            .addField("Moderation Commands", "``setjoinmessage``, ``announcechannel``, ``setleavemessage``", true)
+                            .addField("Moderation Commands", "``setjoinmessage``, ``announcechannel``, ``setleavemessage``, ``setautorole``", true)
                             .addField("Fun Commands", "``8ball``, ``ratewaifu``, ``ship``, ``japanese``", true)
                             .addField("Kawaii Commands", "``hug``, ``kiss``, ``cuddle``, ``highfive``, ``lick``, ``hello``, ``nom``, ``pat``, ``slap``, ``tickle``, ``nosebleed``, ``dance``, ``baka``, ``cry``", true)
                             .addField("Audit Log", "You can create a channel with the name 'kazuma-log' to activate the auditlog", true)
@@ -322,6 +322,7 @@ public class cmdHelp implements Command {
                                     .addField("Required Permission", "``MANAGE_SERVER``", false)
                                     .addField("Category", "``Moderation Commands``", false)
                                     .addField("Aliases", "``/``", false)
+                                    .addField("Attributes", "``%USER%``, ``%SERVER%``, ``%MEMBERCOUNT%``", false)
                                     .build()
 
                     ).queue();
@@ -342,6 +343,21 @@ public class cmdHelp implements Command {
                     break;
 
                 case "setleavemessage":
+                    event.getTextChannel().sendMessage(
+
+                            new EmbedBuilder()
+                                    .setTitle("Command information")
+                                    .setDescription("Usage: ``" + STATIC.PREFIX + args[0] + " <mention>``")
+                                    .addField("Required Permission", "``MANAGE_SERVER``", false)
+                                    .addField("Category", "``Moderation Commands``", false)
+                                    .addField("Aliases", "``/``", false)
+                                    .addField("Attributes", "``%USER%``, ``%SERVER%``, ``%MEMBERCOUNT%``", false)
+                                    .build()
+
+                    ).queue();
+                    break;
+
+                case "setautorole":
                     event.getTextChannel().sendMessage(
 
                             new EmbedBuilder()
