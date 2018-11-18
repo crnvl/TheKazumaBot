@@ -12,6 +12,9 @@ You can use ``/k help`` to get a list of all commands
 ## Invite the bot
 https://bit.ly/kazumabot
 
+## Join the official guild
+https://discord.gg/fyJ6PFj
+
 ## Support the bot
 You can make a pull request to the experimental branch.
 Thank you for helping the development of this bot
