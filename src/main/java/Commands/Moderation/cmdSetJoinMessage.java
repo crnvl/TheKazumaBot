@@ -23,14 +23,41 @@ public class cmdSetJoinMessage implements Command {
 
                         new EmbedBuilder()
                                 .setTitle("Command Usage")
-                                .setDescription("Use ``" + STATIC.PREFIX + "setjoinmessage <your join meesage>`` to set a new Join Message for this Server")
+                                .setDescription("Use ``" + STATIC.PREFIX + "setjoinmessage <your join message>`` to set a new Join Message for this Server")
                                 .addField("Example", "``" + STATIC.PREFIX + "setjoinmessage Welcome on %SERVER%, %USER%! You are the %MEMBERCOUNT%th User here!``", true)
                                 .addField("Attributes", "``%SERVER%`` shows the server name\n" +
                                         "``%USER%`` gets a mention of the joined user\n" +
                                         "``&MEMBERCOUNT%`` will show the current membercount of the server", true)
+                                .addField("Deactivate Join Message", "Use ``" + STATIC.PREFIX + "setjoinmessage disable``", false)
                                 .build()
 
                 ).queue();
+
+            }else if(args[0].contains("disable")) {
+
+                try {
+
+                    event.getJDA().getGuildById("513296609623277599").getTextChannelsByName(event.getGuild().getId(), true).get(0).getManager().setTopic("").queue();
+
+                    event.getTextChannel().sendMessage(
+
+                            new EmbedBuilder()
+                                    .setTitle("Join Message disabled!")
+                                    .setDescription("Your Join Message has been disabled successfully!")
+                                    .build()
+
+                    ).queue();
+
+                }catch (Exception e) {
+                    event.getTextChannel().sendMessage(
+
+                            new EmbedBuilder()
+                                    .setTitle("Error")
+                                    .setDescription("There was no Join Message that could have be disabled!")
+                                    .build()
+
+                    ).queue();
+                }
 
             }else {
 
