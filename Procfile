@@ -1,1 +1,1 @@
-worker: java -jar target/TheKazumaBot-1.0-SNAPSHOT.jar
+worker: java -jar target/TheKazumaBot.jar
