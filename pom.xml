@@ -28,11 +28,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>fr.bmartel</groupId>
-            <artifactId>jspeedtest</artifactId>
-            <version>LATEST</version>
-        </dependency>
-        <dependency>
             <groupId>com.moandjiezana.toml</groupId>
             <artifactId>toml4j</artifactId>
             <version>LATEST</version>
