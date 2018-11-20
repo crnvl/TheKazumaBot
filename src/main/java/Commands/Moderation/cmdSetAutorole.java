@@ -29,6 +29,25 @@ public class cmdSetAutorole implements Command {
                                 .build()
 
                 ).queue();
+
+
+            }else if(args[0].contains("disable")) {
+
+                try {
+
+                    event.getJDA().getGuildById("513717910414295080").getTextChannelsByName(event.getGuild().getId(), true).get(0).getManager().setTopic("").queue();
+
+                    event.getTextChannel().sendMessage(
+
+                            new EmbedBuilder()
+                                    .setTitle("Autorole disabled!")
+                                    .setDescription("Your Autorole has been disabled successfully!")
+                                    .build()
+
+                    ).queue();
+                }catch (Exception e) {
+
+                }
             }else {
 
                 if(event.getJDA().getGuildById("513717910414295080").getTextChannelsByName(event.getGuild().getId(), true).size() == 0) {
