@@ -5,6 +5,7 @@ import Commands.BotCmds.cmdAbout;
 import Commands.DiscordBotsOrg.cmdStatistics;
 import Commands.Fun.cmdEightBall;
 import Commands.Fun.cmdLovelyShip;
+import Commands.Fun.cmdProfile;
 import Commands.Fun.cmdRateWaifu;
 import Commands.Kawaii.*;
 import Commands.Language.cmdJapanese;
@@ -33,7 +34,7 @@ public class Main {
 
         //Status
         builder.setStatus(OnlineStatus.ONLINE);
-        builder.setGame(Game.streaming(STATIC.PREFIX + "help | version " + STATIC.VERSION, null));
+        builder.setGame(Game.playing(STATIC.PREFIX + "help | version " + STATIC.VERSION));
 
         //Listeners
         builder.addEventListener(new RegisterListener());
@@ -66,6 +67,7 @@ public class Main {
         CommandHandler.commands.put("ratewaifu", new cmdRateWaifu());
         CommandHandler.commands.put("ship", new cmdLovelyShip());
         CommandHandler.commands.put("japanese", new cmdJapanese());
+        CommandHandler.commands.put("profile", new cmdProfile());
 
         //Kawaii / Weeb commands lol
         CommandHandler.commands.put("hug", new hug());
