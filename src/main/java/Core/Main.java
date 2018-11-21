@@ -2,6 +2,7 @@ package Core;
 
 
 import Commands.BotCmds.cmdAbout;
+import Commands.BotCmds.cmdVote;
 import Commands.DiscordBotsOrg.cmdStatistics;
 import Commands.Fun.cmdEightBall;
 import Commands.Fun.cmdLovelyShip;
@@ -61,6 +62,7 @@ public class Main {
         CommandHandler.commands.put("db", new cmdStatistics());
         CommandHandler.commands.put("discordbots", new cmdStatistics());
         CommandHandler.commands.put("help", new cmdHelp());
+        CommandHandler.commands.put("vote", new cmdVote());
 
         //Fun
         CommandHandler.commands.put("8ball", new cmdEightBall());
