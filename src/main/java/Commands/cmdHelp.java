@@ -20,7 +20,7 @@ public class cmdHelp implements Command {
 
                             .setTitle("Commandlist")
                             .setDescription("This is a list of all my current commands! My Prefix is " + STATIC.PREFIX)
-                            .addField("Bot Commands", "``about``, ``db``, ``discordbots``", true)
+                            .addField("Bot Commands", "``about``, ``db``, ``discordbots``, ``vote``", true)
                             .addField("Moderation Commands", "``setjoinmessage``, ``announcechannel``, ``setleavemessage``, ``setautorole``", true)
                             .addField("Fun Commands", "``8ball``, ``ratewaifu``, ``ship``, ``japanese``, ``profile``", true)
                             .addField("Kawaii Commands", "``hug``, ``kiss``, ``cuddle``, ``highfive``, ``lick``, ``hello``, ``nom``, ``pat``, ``slap``, ``tickle``, ``nosebleed``, ``dance``, ``baka``, ``cry``", true)
@@ -56,6 +56,19 @@ public class cmdHelp implements Command {
                                     .addField("Required Permission", "``/``", false)
                                     .addField("Category", "``Bot Commands``", false)
                                     .addField("Aliases", "``db``", false)
+                                    .build()
+
+                    ).queue();
+                    break;
+                case "vote":
+                    event.getTextChannel().sendMessage(
+
+                            new EmbedBuilder()
+                                    .setTitle("Command information")
+                                    .setDescription("Usage: ``" + STATIC.PREFIX + args[0] + "``")
+                                    .addField("Required Permission", "``/``", false)
+                                    .addField("Category", "``Bot Commands``", false)
+                                    .addField("Aliases", "``/``", false)
                                     .build()
 
                     ).queue();
