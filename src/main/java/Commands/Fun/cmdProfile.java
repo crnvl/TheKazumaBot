@@ -46,7 +46,7 @@ public class cmdProfile implements Command {
                             .addField("Level", XP + " XP", true)
                             .addField("Vote", "[Click for extended features!](https://discordbots.org/bot/406097711603908621/vote)", true)
                             .setThumbnail(event.getAuthor().getAvatarUrl())
-                            .setFooter("You need to vote to earn XP for 12h or to set your profile status! | You earn XP by using bot commands", null)
+                            .setFooter("You need to vote to earn XP for 12h or to set your profile status!", null)
                             .build()
 
             ).queue();
