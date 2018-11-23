@@ -17,6 +17,7 @@ public class RegisterListener extends ListenerAdapter {
         event.getJDA().addEventListener(new MemberChangeListener());
         event.getJDA().addEventListener(new PrivateResponder());
         event.getJDA().addEventListener(new XPCreditsHandler());
+
         event.getJDA().setAutoReconnect(true);
         System.out.println("Finished Loading!\n" +
                             "Added " + event.getJDA().getRegisteredListeners().size() + " Listener(s)");
