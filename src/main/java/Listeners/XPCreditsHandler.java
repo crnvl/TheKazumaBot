@@ -1,31 +1,25 @@
-package Listeners;
+package Listeners.Loader;
 
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import Listeners.Announcements.MemberChangeListener;
+import Listeners.Cmd.CommandListener;
+import Listeners.Logs.AuditLogListener;
+import Listeners.Private.PrivateResponder;
+import Listeners.XPCreditsHandler;
+import net.dv8tion.jda.core.events.ReadyEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
-import org.discordbots.api.client.DiscordBotListAPI;
 
-public class XPCreditsHandler extends ListenerAdapter {
-    DiscordBotListAPI api = new DiscordBotListAPI.Builder()
-            .token(System.getenv("DB_TOKEN"))
-            .botId("406097711603908621")
-            .build();
+public class RegisterListener extends ListenerAdapter {
+
     @Override
-    public void onMessageReceived(MessageReceivedEvent event) {
+    public void onReady(ReadyEvent event) {
+        event.getJDA().addEventListener(new CommandListener());
+        event.getJDA().addEventListener(new AuditLogListener());
+        event.getJDA().addEventListener(new MemberChangeListener());
+        event.getJDA().addEventListener(new PrivateResponder());
+        event.getJDA().addEventListener(new XPCreditsHandler());
 
-        String userId = event.getAuthor().getId(); // ID of the user you're checking
-        api.hasVoted(userId).whenComplete((hasVoted, e) -> {
-            if(hasVoted) {
-                if(event.getJDA().getGuildById("514460308488716288").getTextChannelsByName(event.getAuthor().getId(), true).size() == 0) {
-                    event.getJDA().getGuildById("514460308488716288").getController().createTextChannel(event.getAuthor().getId()).setTopic("5").complete();
-                }else {
-                    int VALUE = Integer.parseInt(event.getJDA().getGuildById("514460308488716288").getTextChannelsByName(event.getAuthor().getId(), true).get(0).getTopic());
-                    VALUE++;
-                    event.getJDA().getGuildById("514460308488716288").getTextChannelsByName(event.getAuthor().getId(), true).get(0).getManager().setTopic(String.valueOf(VALUE)).queue();
-                }
-            }else {
-
-            }
-
-        });
+        event.getJDA().setAutoReconnect(true);
+        System.out.println("Finished Loading!\n" +
+                            "Added " + event.getJDA().getRegisteredListeners().size() + " Listener(s)");
     }
 }
