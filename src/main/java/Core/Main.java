@@ -1,7 +1,9 @@
 package Core;
 
 
+import Commands.*;
 import Commands.BotCmds.cmdAbout;
+import Commands.BotCmds.cmdReport;
 import Commands.BotCmds.cmdVote;
 import Commands.DiscordBotsOrg.cmdStatistics;
 import Commands.Fun.cmdEightBall;
@@ -14,7 +16,6 @@ import Commands.Moderation.cmdSetAnnouncementChannel;
 import Commands.Moderation.cmdSetAutorole;
 import Commands.Moderation.cmdSetJoinMessage;
 import Commands.Moderation.cmdSetLeaveMessage;
-import Commands.cmdHelp;
 import Core.Execute.CommandHandler;
 import Listeners.Loader.RegisterListener;
 import Util.SECRETS;
@@ -57,12 +58,14 @@ public class Main {
 
     }
     public static void addCommands() {
+
         //Bot Commands
         CommandHandler.commands.put("about", new cmdAbout());
         CommandHandler.commands.put("db", new cmdStatistics());
         CommandHandler.commands.put("discordbots", new cmdStatistics());
         CommandHandler.commands.put("help", new cmdHelp());
         CommandHandler.commands.put("vote", new cmdVote());
+        CommandHandler.commands.put("report", new cmdReport());
 
         //Fun
         CommandHandler.commands.put("8ball", new cmdEightBall());
@@ -92,7 +95,8 @@ public class Main {
         CommandHandler.commands.put("announcechannel", new cmdSetAnnouncementChannel());
         CommandHandler.commands.put("setleavemessage", new cmdSetLeaveMessage());
         CommandHandler.commands.put("setautorole", new cmdSetAutorole());
-
+        
+ 
     }
 
 }
