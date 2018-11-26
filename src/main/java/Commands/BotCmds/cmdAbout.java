@@ -20,7 +20,7 @@ public class cmdAbout implements Command {
                         .addField("Developer", "[GitHub](https://www.github.com/shinixsensei-dev/)\n" +
                                 "[Twitter](https://www.twitter.com/shinixsensei/)", false)
                         .addField("Version", "``" + STATIC.VERSION + "``", true)
-                        .addField("API Ping", event.getJDA().getPing() + "ms", false)
+                        .addField("API-Latency", event.getJDA().getPing() + "ms", false)
                         .addField("Servers","``" + event.getJDA().getGuilds().size() + "``", false)
                         .addField("Users", "``" + event.getJDA().getUsers().size() + "``", false)
                         .addField("Commandlist", STATIC.PREFIX + "help", true)
