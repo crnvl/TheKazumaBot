@@ -3,6 +3,7 @@ package Listeners.Loader;
 import Listeners.Announcements.MemberChangeListener;
 import Listeners.Cmd.CommandListener;
 import Listeners.Logs.AuditLogListener;
+import Listeners.MentionResponder;
 import Listeners.Private.PrivateResponder;
 import Listeners.XPCreditsHandler;
 import net.dv8tion.jda.core.events.ReadyEvent;
@@ -17,6 +18,7 @@ public class RegisterListener extends ListenerAdapter {
         event.getJDA().addEventListener(new MemberChangeListener());
         event.getJDA().addEventListener(new PrivateResponder());
         event.getJDA().addEventListener(new XPCreditsHandler());
+       event.getJDA().addEventListener(new MentionResponder());
 
         event.getJDA().setAutoReconnect(true);
         System.out.println("Finished Loading!\n" +
