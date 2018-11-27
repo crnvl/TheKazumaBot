@@ -24,7 +24,12 @@ public class cmdProfile implements Command {
     public void action(String[] args, MessageReceivedEvent event) {
 
         if(args.length == 0) {
-            String SET, XP;
+            String SET, XP, CREDITS;
+            if(event.getJDA().getGuildById("515083259957346304").getTextChannelsByName(event.getAuthor().getId(), true).size() == 0) {
+                CREDITS = "0";
+            }else {
+               CREDITS = event.getJDA().getGuildById("515083259957346304").getTextChannelsByName(event.getAuthor().getId(), true).get(0).getTopic();
+            }
             if (event.getJDA().getGuildById("514431614210670592").getTextChannelsByName(event.getAuthor().getId(), true).size() == 0){
                 SET = "None";
             }else {
@@ -47,6 +52,7 @@ public class cmdProfile implements Command {
                                     .addField("Birthday", event.getAuthor().getCreationTime().format(DateTimeFormatter.RFC_1123_DATE_TIME), true)
                                     .addField("Server Join", event.getMember().getJoinDate().format(DateTimeFormatter.RFC_1123_DATE_TIME), true)
                                     .addField("Level", XP + " XP", true)
+                                    .addField("Credits", CREDITS + " Credits", true)
                                     .setThumbnail(event.getAuthor().getAvatarUrl())
                                     .build()
 
@@ -60,6 +66,7 @@ public class cmdProfile implements Command {
                                     .addField("Birthday", event.getAuthor().getCreationTime().format(DateTimeFormatter.RFC_1123_DATE_TIME), true)
                                     .addField("Server Join", event.getMember().getJoinDate().format(DateTimeFormatter.RFC_1123_DATE_TIME), true)
                                     .addField("Level", XP + " XP", true)
+                                    .addField("Credits", CREDITS + " Credits", true)
                                     .addField("Vote", "[Click for extended features!](https://discordbots.org/bot/406097711603908621/vote)", true)
                                     .setThumbnail(event.getAuthor().getAvatarUrl())
                                     .setFooter("You need to vote to earn XP for 12h or to set your profile status!", null)
@@ -132,7 +139,12 @@ public class cmdProfile implements Command {
 
             }
         }if(event.getMessage().getMentionedMembers().size() == 1) {
-            String SET, XP;
+            String SET, XP, CREDITS;
+            if(event.getJDA().getGuildById("515083259957346304").getTextChannelsByName(event.getMessage().getMentionedMembers().get(0).getUser().getId(), true).size() == 0) {
+                CREDITS = "0 Credits";
+            }else {
+                CREDITS = event.getJDA().getGuildById("515083259957346304").getTextChannelsByName(event.getMessage().getMentionedMembers().get(0).getUser().getId(), true).get(0).getTopic();
+            }
             if (event.getJDA().getGuildById("514431614210670592").getTextChannelsByName(event.getMessage().getMentionedMembers().get(0).getUser().getId(), true).size() == 0){
                 SET = "None";
             }else {
@@ -152,6 +164,7 @@ public class cmdProfile implements Command {
                             .addField("Birthday", event.getMessage().getMentionedMembers().get(0).getUser().getCreationTime().format(DateTimeFormatter.RFC_1123_DATE_TIME), true)
                             .addField("Server Join", event.getMessage().getMentionedMembers().get(0).getJoinDate().format(DateTimeFormatter.RFC_1123_DATE_TIME), true)
                             .addField("Level", XP + " XP", true)
+                            .addField("Credits", CREDITS + " Credits", true)
                             .setThumbnail(event.getMessage().getMentionedMembers().get(0).getUser().getAvatarUrl())
                             .build()
 
