@@ -47,43 +47,47 @@ public class cmdDaily implements Command {
 
                         ).queue();
                     } else {
-                        if(event.getJDA().getGuildById("517023751301234688").getTextChannelsByName(String.valueOf(userId), true).size() == 0) {
-                            event.getJDA().getGuildById("517023751301234688").getController().createTextChannel(String.valueOf(userId)).setTopic("0").queue();
+                        try {
+                            if (event.getJDA().getGuildById("517023751301234688").getTextChannelsByName(String.valueOf(userId), true).size() == 0) {
+                                event.getJDA().getGuildById("517023751301234688").getController().createTextChannel(String.valueOf(userId)).setTopic("0").queue();
 
-                            Random rate = new Random();
-                            int r = rate.nextInt(30) + 120;
-                            if (event.getJDA().getGuildById("515083259957346304").getTextChannelsByName(event.getAuthor().getId(), true).size() == 0) {
-                                event.getJDA().getGuildById("515083259957346304").getController().createTextChannel(event.getAuthor().getId()).setTopic(String.valueOf(r)).complete();
+                                Random rate = new Random();
+                                int r = rate.nextInt(30) + 120;
+                                if (event.getJDA().getGuildById("515083259957346304").getTextChannelsByName(event.getAuthor().getId(), true).size() == 0) {
+                                    event.getJDA().getGuildById("515083259957346304").getController().createTextChannel(event.getAuthor().getId()).setTopic(String.valueOf(r)).complete();
+                                } else {
+                                    event.getJDA().getGuildById("515083259957346304").getTextChannelsByName(event.getAuthor().getId(), true).get(0).getManager().setTopic(String.valueOf(r)).queue();
+                                }
+                                event.getTextChannel().sendMessage(
+
+                                        new EmbedBuilder()
+                                                .setTitle("Daily claimed!")
+                                                .setDescription("You recieved " + r + " credits")
+                                                .build()
+
+                                ).queue();
+                                event.getJDA().getGuildById("517023751301234688").getTextChannelsByName(String.valueOf(userId), true).get(0).getManager().setTopic(String.valueOf(timestamp)).queue();
+
                             } else {
-                                event.getJDA().getGuildById("515083259957346304").getTextChannelsByName(event.getAuthor().getId(), true).get(0).getManager().setTopic(String.valueOf(r)).queue();
+                                Random rate = new Random();
+                                int r = rate.nextInt(30) + 120;
+                                if (event.getJDA().getGuildById("515083259957346304").getTextChannelsByName(event.getAuthor().getId(), true).size() == 0) {
+                                    event.getJDA().getGuildById("515083259957346304").getController().createTextChannel(event.getAuthor().getId()).setTopic(String.valueOf(r)).complete();
+                                } else {
+                                    event.getJDA().getGuildById("515083259957346304").getTextChannelsByName(event.getAuthor().getId(), true).get(0).getManager().setTopic(String.valueOf(r)).queue();
+                                }
+                                event.getTextChannel().sendMessage(
+
+                                        new EmbedBuilder()
+                                                .setTitle("Daily claimed!")
+                                                .setDescription("You recieved " + r + " credits")
+                                                .build()
+
+                                ).queue();
+                                event.getJDA().getGuildById("517023751301234688").getTextChannelsByName(String.valueOf(userId), true).get(0).getManager().setTopic(String.valueOf(timestamp)).queue();
                             }
-                            event.getTextChannel().sendMessage(
-
-                                    new EmbedBuilder()
-                                            .setTitle("Daily claimed!")
-                                            .setDescription("You recieved " + r + " credits")
-                                            .build()
-
-                            ).queue();
-                            event.getJDA().getGuildById("517023751301234688").getTextChannelsByName(String.valueOf(userId), true).get(0).getManager().setTopic(String.valueOf(timestamp)).queue();
-
-                        }else {
-                            Random rate = new Random();
-                            int r = rate.nextInt(30) + 120;
-                            if (event.getJDA().getGuildById("515083259957346304").getTextChannelsByName(event.getAuthor().getId(), true).size() == 0) {
-                                event.getJDA().getGuildById("515083259957346304").getController().createTextChannel(event.getAuthor().getId()).setTopic(String.valueOf(r)).complete();
-                            } else {
-                                event.getJDA().getGuildById("515083259957346304").getTextChannelsByName(event.getAuthor().getId(), true).get(0).getManager().setTopic(String.valueOf(r)).queue();
-                            }
-                            event.getTextChannel().sendMessage(
-
-                                    new EmbedBuilder()
-                                            .setTitle("Daily claimed!")
-                                            .setDescription("You recieved " + r + " credits")
-                                            .build()
-
-                            ).queue();
-                            event.getJDA().getGuildById("517023751301234688").getTextChannelsByName(String.valueOf(userId), true).get(0).getManager().setTopic(String.valueOf(timestamp)).queue();
+                        }catch (Exception whatthefuck) {
+                            whatthefuck.printStackTrace();
                         }
                     }
 
