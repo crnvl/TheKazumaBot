@@ -1,15 +1,12 @@
 package Core;
 
-
 import Commands.*;
 import Commands.BotCmds.cmdAbout;
 import Commands.BotCmds.cmdReport;
 import Commands.BotCmds.cmdVote;
 import Commands.DiscordBotsOrg.cmdStatistics;
-import Commands.Fun.cmdEightBall;
-import Commands.Fun.cmdLovelyShip;
-import Commands.Fun.cmdProfile;
-import Commands.Fun.cmdRateWaifu;
+import Commands.Fun.*;
+import Commands.Games.OsuRequest.requestGetUser;
 import Commands.Kawaii.*;
 import Commands.Language.cmdJapanese;
 import Commands.Moderation.cmdSetAnnouncementChannel;
@@ -23,10 +20,13 @@ import Util.STATIC;
 import net.dv8tion.jda.core.*;
 import net.dv8tion.jda.core.entities.Game;
 import javax.security.auth.login.LoginException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
 
     public static JDABuilder builder;
+    public static Map<Long, Long> cooldowns = new HashMap();
 
     public static void main(String[] Args) throws LoginException, InterruptedException {
         builder = new JDABuilder(AccountType.BOT);
@@ -37,6 +37,7 @@ public class Main {
         //Status
         builder.setStatus(OnlineStatus.ONLINE);
         builder.setGame(Game.playing(STATIC.PREFIX + "help | version " + STATIC.VERSION));
+
 
         //Listeners
         builder.addEventListener(new RegisterListener());
@@ -59,6 +60,7 @@ public class Main {
     }
     public static void addCommands() {
 
+        ///**
         //Bot Commands
         CommandHandler.commands.put("about", new cmdAbout());
         CommandHandler.commands.put("db", new cmdStatistics());
@@ -73,6 +75,7 @@ public class Main {
         CommandHandler.commands.put("ship", new cmdLovelyShip());
         CommandHandler.commands.put("japanese", new cmdJapanese());
         CommandHandler.commands.put("profile", new cmdProfile());
+        CommandHandler.commands.put("daily", new cmdDaily());
 
         //Kawaii / Weeb commands lol
         CommandHandler.commands.put("hug", new hug());
@@ -95,8 +98,11 @@ public class Main {
         CommandHandler.commands.put("announcechannel", new cmdSetAnnouncementChannel());
         CommandHandler.commands.put("setleavemessage", new cmdSetLeaveMessage());
         CommandHandler.commands.put("setautorole", new cmdSetAutorole());
-        
- 
+         //**/
+        //GAMES
+        CommandHandler.commands.put("osu", new requestGetUser());
+
+
     }
 
 }
