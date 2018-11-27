@@ -64,13 +64,13 @@ public class requestGetUser implements Command {
                                 .setTitle("Osu profile of " + user.getUsername())
                                 .addField("ID", "``" + user.getID() + "``", false)
                                 .addField("Country", "``" + user.getCountry() + "``", true)
-                                .addField("Accuracy", "``" + user.getAccuracy() + "``", true)
+                                .addField("Accuracy", "``" + user.getAccuracy() + "%``", true)
                                 .addField("Played Maps", "``" + user.getPlayCount() + "``", true)
                                 .addField("Total Score", "``" + user.getTotalScore() + "``", false)
                                 .addField("User URL", "``" + user.getURL() + "``", false)
                                 .addField("Ranking", "``#" + user.getRank() + "(" + user.getPP() + "pp) Country Ranking: #" + user.getCountryRank() + "``", false)
                                 .addField("Total Score", "``" + user.getTotalScore() + "``", false)
-                                .addField("Ranks", "``" + user.getCountRankSSH() + ", " + user.getCountRankSS() + ", " + user.getCountRankSH() + ", " + user.getCountRankS() + ", " + user.getCountRankA() + "``", false)
+                                .addField("Ranks", "``SS+: " + user.getCountRankSSH() + ", SS: " + user.getCountRankSS() + ", S+: " + user.getCountRankSH() + ", S: " + user.getCountRankS() + ", A: " + user.getCountRankA() + "``", false)
                                 .build()
 
                 ).queue();
