@@ -24,8 +24,13 @@ public class cmdDaily implements Command {
         //517023751301234688
         //515083259957346304
         //int countdownSeconds = 86400;
+        int keyValue;
         int countdownSeconds = 86400000;
-        int keyValue = Integer.parseInt(event.getJDA().getGuildById("517023751301234688").getTextChannelsByName(event.getAuthor().getId(), true).get(0).getTopic());
+        if(event.getJDA().getGuildById("517023751301234688").getTextChannelsByName(event.getAuthor().getId(), true).size() == 0) {
+            keyValue = 0;
+        }else {
+            keyValue = Integer.parseInt(event.getJDA().getGuildById("517023751301234688").getTextChannelsByName(event.getAuthor().getId(), true).get(0).getTopic());   
+        }
         long timestamp = System.currentTimeMillis();
         long userId = event.getAuthor().getIdLong();
         String userIdapi = event.getAuthor().getId(); // ID of the user you're checking
@@ -66,7 +71,7 @@ public class cmdDaily implements Command {
 
                             ).queue();
                             event.getJDA().getGuildById("517023751301234688").getTextChannelsByName(String.valueOf(userId), true).get(0).getManager().setTopic(String.valueOf(timestamp)).queue();
-                            
+
                         }else {
                             Random rate = new Random();
                             int r = rate.nextInt(30) + 120;
