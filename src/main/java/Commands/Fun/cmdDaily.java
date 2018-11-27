@@ -21,17 +21,18 @@ public class cmdDaily implements Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent event) {
-
+        //517023751301234688
         //515083259957346304
         //int countdownSeconds = 86400;
         int countdownSeconds = 86400000;
+        int keyValue = Integer.parseInt(event.getJDA().getGuildById("517023751301234688").getTextChannelsByName(event.getAuthor().getId(), true).get(0).getTopic());
         long timestamp = System.currentTimeMillis();
         long userId = event.getAuthor().getIdLong();
         String userIdapi = event.getAuthor().getId(); // ID of the user you're checking
         api.hasVoted(userIdapi).whenComplete((hasVoted, e) -> {
             if (hasVoted) {
                 if (event.getJDA().getGuildById("514460308488716288").getTextChannelsByName(event.getAuthor().getId(), true).size() == 0) {
-                    if (Main.cooldowns.containsKey(userId) && timestamp - (Long) Main.cooldowns.get(userId) < countdownSeconds) {
+                    if (event.getJDA().getGuildById("517023751301234688").getTextChannelsByName(String.valueOf(userId), true).size() != 0 && timestamp - keyValue < countdownSeconds) {
                         event.getTextChannel().sendMessage(
 
                                 new EmbedBuilder()
@@ -41,7 +42,11 @@ public class cmdDaily implements Command {
 
                         ).queue();
                     } else {
+                        try{
+                            event.getJDA().getGuildById("517023751301234688").getController().getGuild().getTextChannelsByName(String.valueOf(userId), true).get(0).delete().queue();
+                        }catch (Exception fuck) {
 
+                        }
                         Random rate = new Random();
                         int r = rate.nextInt(30) + 120;
                         if (event.getJDA().getGuildById("515083259957346304").getTextChannelsByName(event.getAuthor().getId(), true).size() == 0) {
@@ -57,7 +62,7 @@ public class cmdDaily implements Command {
                                         .build()
 
                         ).queue();
-                        Main.cooldowns.put(userId, timestamp);
+                        event.getJDA().getGuildById("517023751301234688").getTextChannelsByName(String.valueOf(userId), true).get(0).getManager().setTopic(String.valueOf(timestamp)).queue();
                     }
 
 
