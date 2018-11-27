@@ -26,7 +26,6 @@ import java.util.Map;
 public class Main {
 
     public static JDABuilder builder;
-    public static Map<Long, Long> cooldowns = new HashMap();
 
     public static void main(String[] Args) throws LoginException, InterruptedException {
         builder = new JDABuilder(AccountType.BOT);
@@ -75,7 +74,6 @@ public class Main {
         CommandHandler.commands.put("ship", new cmdLovelyShip());
         CommandHandler.commands.put("japanese", new cmdJapanese());
         CommandHandler.commands.put("profile", new cmdProfile());
-        CommandHandler.commands.put("daily", new cmdDaily());
 
         //Kawaii / Weeb commands lol
         CommandHandler.commands.put("hug", new hug());
