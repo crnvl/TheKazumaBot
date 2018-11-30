@@ -6,6 +6,7 @@ import Commands.BotCmds.cmdReport;
 import Commands.BotCmds.cmdVote;
 import Commands.DiscordBotsOrg.cmdStatistics;
 import Commands.Fun.*;
+import Commands.Games.PaladinsRequest.requestPaladinsUser;
 import Commands.Games.OsuRequest.requestGetUser;
 import Commands.Kawaii.*;
 import Commands.Language.cmdJapanese;
@@ -99,6 +100,7 @@ public class Main {
          //**/
         //GAMES
         CommandHandler.commands.put("osu", new requestGetUser());
+        CommandHandler.commands.put("paladins", new requestPaladinsUser());
 
 
     }
