@@ -28,7 +28,7 @@ public class requestGetUser implements Command {
     public void action(String[] args, MessageReceivedEvent event) {
 
         // Create a new Osu object with an API key
-        if(args.length > 2) {
+            if(args.length < 2) {
             event.getTextChannel().sendMessage(
 
                     new EmbedBuilder()
