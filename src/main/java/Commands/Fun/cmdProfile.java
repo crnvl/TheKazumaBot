@@ -52,7 +52,7 @@ public class cmdProfile implements Command {
                                     .addField("Birthday", event.getAuthor().getCreationTime().format(DateTimeFormatter.RFC_1123_DATE_TIME), true)
                                     .addField("Server Join", event.getMember().getJoinDate().format(DateTimeFormatter.RFC_1123_DATE_TIME), true)
                                     .addField("Level", XP + " XP", true)
-                                    .addField("Credits", CREDITS + " Credits", true)
+                                    //.addField("Credits", CREDITS + " Credits", true)
                                     .setThumbnail(event.getAuthor().getAvatarUrl())
                                     .build()
 
@@ -66,7 +66,7 @@ public class cmdProfile implements Command {
                                     .addField("Birthday", event.getAuthor().getCreationTime().format(DateTimeFormatter.RFC_1123_DATE_TIME), true)
                                     .addField("Server Join", event.getMember().getJoinDate().format(DateTimeFormatter.RFC_1123_DATE_TIME), true)
                                     .addField("Level", XP + " XP", true)
-                                    .addField("Credits", CREDITS + " Credits", true)
+                                    //.addField("Credits", CREDITS + " Credits", true)
                                     .addField("Vote", "[Click for extended features!](https://discordbots.org/bot/406097711603908621/vote)", true)
                                     .setThumbnail(event.getAuthor().getAvatarUrl())
                                     .setFooter("You need to vote to earn XP for 12h or to set your profile status!", null)
@@ -164,7 +164,7 @@ public class cmdProfile implements Command {
                             .addField("Birthday", event.getMessage().getMentionedMembers().get(0).getUser().getCreationTime().format(DateTimeFormatter.RFC_1123_DATE_TIME), true)
                             .addField("Server Join", event.getMessage().getMentionedMembers().get(0).getJoinDate().format(DateTimeFormatter.RFC_1123_DATE_TIME), true)
                             .addField("Level", XP + " XP", true)
-                            .addField("Credits", CREDITS + " Credits", true)
+                            //.addField("Credits", CREDITS + " Credits", true)
                             .setThumbnail(event.getMessage().getMentionedMembers().get(0).getUser().getAvatarUrl())
                             .build()
 
