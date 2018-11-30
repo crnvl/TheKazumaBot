@@ -24,7 +24,7 @@ public class cmdHelp implements Command {
                             .addField("Moderation Commands", "``setjoinmessage``, ``announcechannel``, ``setleavemessage``, ``setautorole``", true)
                             .addField("Fun Commands", "``8ball``, ``ratewaifu``, ``ship``, ``japanese``, ``profile``", true)
                             .addField("Kawaii Commands", "``hug``, ``kiss``, ``cuddle``, ``highfive``, ``lick``, ``hello``, ``nom``, ``pat``, ``slap``, ``tickle``, ``nosebleed``, ``dance``, ``baka``, ``cry``", true)
-                            .addField("Games", "``osu``", true)
+                            .addField("Games", "``osu``, ``paladins``", true)
                             .addField("Audit Log", "You can create a channel with the name 'kazuma-log' to activate the auditlog", true)
                             .addField("Help Command", "Use ``" + STATIC.PREFIX + "help <command>`` to get information about a specific command! (Don't include ``<`` or ``>``)", true)
 
@@ -419,6 +419,19 @@ public class cmdHelp implements Command {
                             new EmbedBuilder()
                                     .setTitle("Command information")
                                     .setDescription("Usage: ``" + STATIC.PREFIX + args[0] + " <username> <mode (standard, taiko, mania, ctb)>``")
+                                    .addField("Required Permission", "``/``", false)
+                                    .addField("Category", "``Games``", false)
+                                    .addField("Aliases", "``/``", false)
+                                    .build()
+
+                    ).queue();
+                    break;
+                case "paladins":
+                    event.getTextChannel().sendMessage(
+
+                            new EmbedBuilder()
+                                    .setTitle("Command information")
+                                    .setDescription("Usage: ``" + STATIC.PREFIX + args[0] + " <username>``")
                                     .addField("Required Permission", "``/``", false)
                                     .addField("Category", "``Games``", false)
                                     .addField("Aliases", "``/``", false)
