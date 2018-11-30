@@ -79,6 +79,11 @@
             <artifactId>osu4j</artifactId>
             <version>2.0.1</version>
         </dependency>
+              <dependency>
+            <groupId>net.heyzeer0.papi</groupId>
+            <artifactId>PaladinsAPI</artifactId>
+            <version>LATEST</version>
+        </dependency>
     </dependencies>
 
 
