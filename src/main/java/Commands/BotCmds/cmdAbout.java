@@ -20,7 +20,7 @@ public class cmdAbout implements Command {
                         .addField("Developer", "[GitHub](https://www.github.com/shinixsensei-dev/)\n" +
                                 "[Twitter](https://www.twitter.com/shinixsensei/)", false)
                         .addField("Version", "``" + STATIC.VERSION + "``", true)
-                        .addField("API-Latency", event.getJDA().getPing() + "ms", false)
+                        .addField("API Ping", event.getJDA().getPing() + "ms", false)
                         .addField("Servers","``" + event.getJDA().getGuilds().size() + "``", false)
                         .addField("Users", "``" + event.getJDA().getUsers().size() + "``", false)
                         .addField("Commandlist", STATIC.PREFIX + "help", true)
@@ -28,6 +28,7 @@ public class cmdAbout implements Command {
                         .addField("Support Server", "[Click to Join](https://discord.gg/fyJ6PFj)", true)
                         .addField("Vote for me!", "[Vote on discordbots.org](https://discordbots.org/bot/406097711603908621)", false)
                         .addField("GitHub", "https://github.com/shinixsensei-dev/TheKazumaBot", true)
+                        .addField("Website", "[kazumabot.rf.gd](http://kazumabot.rf.gd)", true)
                         .setFooter("Kazuma is a project by MIYAKI Development. Copyright Owner is "  + event.getJDA().getUserById("265849018662387712").getName() + "#" + event.getJDA().getUserById("265849018662387712").getDiscriminator(), null)
                         .build()).queue();
     }
