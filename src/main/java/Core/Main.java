@@ -36,7 +36,7 @@ public class Main {
 
         //Status
         builder.setStatus(OnlineStatus.ONLINE);
-        builder.setGame(Game.playing(STATIC.PREFIX + "help | version " + STATIC.VERSION));
+        builder.setGame(Game.playing(STATIC.PREFIX + "help | http://kazumabot.rf.gd/"));
 
 
         //Listeners
