@@ -6,8 +6,8 @@ import Commands.BotCmds.cmdReport;
 import Commands.BotCmds.cmdVote;
 import Commands.DiscordBotsOrg.cmdStatistics;
 import Commands.Fun.*;
-import Commands.Games.PaladinsRequest.requestPaladinsUser;
 import Commands.Games.OsuRequest.requestGetUser;
+import Commands.Games.PaladinsRequest.requestPaladinsUser;
 import Commands.Kawaii.*;
 import Commands.Language.cmdJapanese;
 import Commands.Moderation.cmdSetAnnouncementChannel;
@@ -21,8 +21,6 @@ import Util.STATIC;
 import net.dv8tion.jda.core.*;
 import net.dv8tion.jda.core.entities.Game;
 import javax.security.auth.login.LoginException;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Main {
 
@@ -36,7 +34,7 @@ public class Main {
 
         //Status
         builder.setStatus(OnlineStatus.ONLINE);
-        builder.setGame(Game.playing(STATIC.PREFIX + "help | http://kazumabot.rf.gd/"));
+        builder.setGame(Game.playing("http://kazumabot.rf.gd/ | " + STATIC.PREFIX + "help"));
 
 
         //Listeners
@@ -75,6 +73,7 @@ public class Main {
         CommandHandler.commands.put("ship", new cmdLovelyShip());
         CommandHandler.commands.put("japanese", new cmdJapanese());
         CommandHandler.commands.put("profile", new cmdProfile());
+        CommandHandler.commands.put("say", new cmdSay());
 
         //Kawaii / Weeb commands lol
         CommandHandler.commands.put("hug", new hug());
