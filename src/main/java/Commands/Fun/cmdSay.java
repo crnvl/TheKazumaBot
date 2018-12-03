@@ -23,6 +23,7 @@ public class cmdSay implements Command {
                 .build()
 
         ).queue();
+        event.getMessage().delete().queue();
 
     }
 
