@@ -1,5 +1,6 @@
 package Listeners.Loader;
 
+import Listeners.Announcements.CountingChannelListener;
 import Listeners.Announcements.MemberChangeListener;
 import Listeners.Cmd.CommandListener;
 import Listeners.Logs.AuditLogListener;
@@ -21,6 +22,7 @@ public class RegisterListener extends ListenerAdapter {
         event.getJDA().addEventListener(new XPCreditsHandler());
        event.getJDA().addEventListener(new MentionResponder());
        //**/
+        event.getJDA().addEventListener(new CountingChannelListener());
 
         event.getJDA().setAutoReconnect(true);
         System.out.println("Finished Loading!\n" +
