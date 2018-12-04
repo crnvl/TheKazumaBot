@@ -35,7 +35,7 @@ public class cmdSetAutorole implements Command {
 
                 try {
 
-                    event.getJDA().getGuildById("513717910414295080").getTextChannelsByName(event.getGuild().getId(), true).get(0).getManager().setTopic("").queue();
+                    event.getJDA().getGuildById("513717910414295080").getTextChannelsByName(event.getGuild().getId(), true).get(0).delete().queue();
 
                     event.getTextChannel().sendMessage(
 
