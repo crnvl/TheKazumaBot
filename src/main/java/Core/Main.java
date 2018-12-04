@@ -11,6 +11,7 @@ import Commands.Games.PaladinsRequest.requestPaladinsUser;
 import Commands.Kawaii.*;
 import Commands.Language.cmdJapanese;
 import Commands.Moderation.*;
+import Commands.Owner.cmdOwnerSet;
 import Core.Execute.CommandHandler;
 import Listeners.Loader.RegisterListener;
 import Util.SECRETS;
@@ -55,7 +56,7 @@ public class Main {
     }
     public static void addCommands() {
 
-        ///**
+
         //Bot Commands
         CommandHandler.commands.put("about", new cmdAbout());
         CommandHandler.commands.put("db", new cmdStatistics());
@@ -95,13 +96,14 @@ public class Main {
         CommandHandler.commands.put("setautorole", new cmdSetAutorole());
         CommandHandler.commands.put("setcountchannel", new cmdSetCountingChannel());
         CommandHandler.commands.put("setcountstart", new setCountStarter());
-        
+
         //GAMES
         CommandHandler.commands.put("osu", new requestGetUser());
         CommandHandler.commands.put("paladins", new requestPaladinsUser());
 
-         //**/
-        
+
+        //OWNER
+        CommandHandler.commands.put("refresh", new cmdOwnerSet());
 
 
     }
