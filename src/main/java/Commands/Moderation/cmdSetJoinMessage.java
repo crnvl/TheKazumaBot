@@ -37,7 +37,7 @@ public class cmdSetJoinMessage implements Command {
 
                 try {
 
-                    event.getJDA().getGuildById("513296609623277599").getTextChannelsByName(event.getGuild().getId(), true).get(0).getManager().setTopic("").queue();
+                    event.getJDA().getGuildById("513296609623277599").getTextChannelsByName(event.getGuild().getId(), true).get(0).delete().queue();
 
                     event.getTextChannel().sendMessage(
 
@@ -53,7 +53,7 @@ public class cmdSetJoinMessage implements Command {
 
                             new EmbedBuilder()
                                     .setTitle("Error")
-                                    .setDescription("There was no Join Message that could have be disabled!")
+                                    .setDescription("There was no Join Message that could have been disabled!")
                                     .build()
 
                     ).queue();
