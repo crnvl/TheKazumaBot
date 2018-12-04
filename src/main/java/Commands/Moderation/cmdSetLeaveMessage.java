@@ -38,7 +38,7 @@ public class cmdSetLeaveMessage implements Command {
 
                 try{
 
-                    event.getJDA().getGuildById("513297201666064390").getTextChannelsByName(event.getGuild().getId(), true).get(0).getManager().setTopic("").queue();
+                    event.getJDA().getGuildById("513297201666064390").getTextChannelsByName(event.getGuild().getId(), true).get(0).delete().queue();
 
                     event.getTextChannel().sendMessage(
 
@@ -53,7 +53,7 @@ public class cmdSetLeaveMessage implements Command {
 
                             new EmbedBuilder()
                                     .setTitle("Error")
-                                    .setDescription("There was no Leave Message that could have be disabled!")
+                                    .setDescription("There was no Leave Message that could have been disabled!")
                                     .build()
 
                     ).queue();
