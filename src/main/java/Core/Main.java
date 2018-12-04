@@ -10,10 +10,7 @@ import Commands.Games.OsuRequest.requestGetUser;
 import Commands.Games.PaladinsRequest.requestPaladinsUser;
 import Commands.Kawaii.*;
 import Commands.Language.cmdJapanese;
-import Commands.Moderation.cmdSetAnnouncementChannel;
-import Commands.Moderation.cmdSetAutorole;
-import Commands.Moderation.cmdSetJoinMessage;
-import Commands.Moderation.cmdSetLeaveMessage;
+import Commands.Moderation.*;
 import Core.Execute.CommandHandler;
 import Listeners.Loader.RegisterListener;
 import Util.SECRETS;
@@ -96,10 +93,15 @@ public class Main {
         CommandHandler.commands.put("announcechannel", new cmdSetAnnouncementChannel());
         CommandHandler.commands.put("setleavemessage", new cmdSetLeaveMessage());
         CommandHandler.commands.put("setautorole", new cmdSetAutorole());
-         //**/
+        CommandHandler.commands.put("setcountchannel", new cmdSetCountingChannel());
+        CommandHandler.commands.put("setcountstart", new setCountStarter());
+        
         //GAMES
         CommandHandler.commands.put("osu", new requestGetUser());
         CommandHandler.commands.put("paladins", new requestPaladinsUser());
+
+         //**/
+        
 
 
     }
