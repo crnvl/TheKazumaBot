@@ -30,7 +30,7 @@ public class cmdOwnerSet implements Command {
             int serverCount = event.getJDA().getGuilds().size();
 
             api.setStats(serverCount);
-
+  event.getTextChannel().sendMessage("Refreshed").queue();
 
 
         }
