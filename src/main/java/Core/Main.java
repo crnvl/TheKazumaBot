@@ -72,7 +72,7 @@ public class Main {
         CommandHandler.commands.put("japanese", new cmdJapanese());
         CommandHandler.commands.put("profile", new cmdProfile());
         CommandHandler.commands.put("say", new cmdSay());
-         CommandHandler.commands.put("leaderboard", new cmdLeaderboard());
+         //CommandHandler.commands.put("leaderboard", new cmdLeaderboard());
 
         //Kawaii / Weeb commands lol
         CommandHandler.commands.put("hug", new hug());
