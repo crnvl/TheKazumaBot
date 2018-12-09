@@ -21,7 +21,7 @@ public class cmdAbout implements Command {
                         .addField("Developer", "[GitHub](https://www.github.com/shinixsensei-dev/)\n" +
                                 "[Twitter](https://www.twitter.com/shinixsensei/)", true)
                         .addField("System", "Available RAM ``" + Runtime.getRuntime().freeMemory() / mb + "/" + Runtime.getRuntime().maxMemory() / mb + "MB``\n" +
-                                                        "Threats ``" + Runtime.getRuntime().availableProcessors() + "``", true)
+                                                        "Threads ``" + Runtime.getRuntime().availableProcessors() + "``", true)
                         .addField("Version", "``" + STATIC.VERSION + "``", true)
                         .addField("API-Latency", event.getJDA().getPing() + "ms", false)
                         .addField("Servers","``" + event.getJDA().getGuilds().size() + "``", false)
