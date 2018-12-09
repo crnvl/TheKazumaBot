@@ -30,7 +30,7 @@ public class cmdLeaderboard implements Command {
 
         for (int i = 0; i < event.getJDA().getGuildById("521278542063992832").getTextChannels().size(); i++) {
             unsortMap.put(event.getJDA().getTextChannelById(event.getJDA().getGuildById("519454815806554112").getTextChannels().get(i).getTopic().replaceAll("[^0-9]", "")).getGuild().getName()
-                    , Long.valueOf(event.getJDA().getTextChannelById(event.getJDA().getGuildById("521278542063992832").getTextChannels().get(i).getTopic().replaceAll("[^0-9]", "")).getTopic()));
+                    , Long.valueOf(String.valueOf(event.getJDA().getGuildById("521278542063992832").getTextChannels().get(i).getTopic())));
         }
 
 
