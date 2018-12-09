@@ -13,13 +13,14 @@ public class cmdAbout implements Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent event) {
+        int mb = 1024 * 1024;
         event.getTextChannel().sendMessage(
                 new EmbedBuilder()
                         .setTitle("Info Card")
                         .setDescription("This Bot has been created by " + event.getJDA().getUserById("265849018662387712").getName() + "#" + event.getJDA().getUserById("265849018662387712").getDiscriminator() + " using Java/JDA.\n")
                         .addField("Developer", "[GitHub](https://www.github.com/shinixsensei-dev/)\n" +
-                                "[Twitter](https://www.twitter.com/shinixsensei/)", false)
-                        .addField("System", "Available RAM ``" + Runtime.getRuntime().freeMemory() + "/" + Runtime.getRuntime().maxMemory() + "``\n" +
+                                "[Twitter](https://www.twitter.com/shinixsensei/)", true)
+                        .addField("System", "Available RAM ``" + Runtime.getRuntime().freeMemory() / mb + "/" + Runtime.getRuntime().maxMemory() / mb + "MB``\n" +
                                                         "Cores ``" + Runtime.getRuntime().availableProcessors() + "``", true)
                         .addField("Version", "``" + STATIC.VERSION + "``", true)
                         .addField("API-Latency", event.getJDA().getPing() + "ms", false)
