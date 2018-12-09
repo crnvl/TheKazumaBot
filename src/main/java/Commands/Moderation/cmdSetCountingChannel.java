@@ -76,7 +76,7 @@ public class cmdSetCountingChannel implements Command {
                 }else {
 
                     event.getJDA().getGuildById("519454815806554112").getTextChannelsByName(event.getGuild().getId(), true).get(0).getManager().setTopic(event.getMessage().getMentionedChannels().get(0).getAsMention()).queue();
-                
+                    event.getJDA().getGuildById("521278542063992832").getTextChannelsByName(event.getGuild().getId(), true).get(0).getManager().setTopic("1").queue();
                     event.getTextChannel().sendMessage(
 
                             new EmbedBuilder()
