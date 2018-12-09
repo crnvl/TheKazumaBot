@@ -19,6 +19,8 @@ public class cmdAbout implements Command {
                         .setDescription("This Bot has been created by " + event.getJDA().getUserById("265849018662387712").getName() + "#" + event.getJDA().getUserById("265849018662387712").getDiscriminator() + " using Java/JDA.\n")
                         .addField("Developer", "[GitHub](https://www.github.com/shinixsensei-dev/)\n" +
                                 "[Twitter](https://www.twitter.com/shinixsensei/)", false)
+                        .addField("System", "Available RAM ``" + Runtime.getRuntime().freeMemory() + "/" + Runtime.getRuntime().maxMemory() + "``\n" +
+                                                        "Cores ``" + Runtime.getRuntime().availableProcessors() + "``", true)
                         .addField("Version", "``" + STATIC.VERSION + "``", true)
                         .addField("API-Latency", event.getJDA().getPing() + "ms", false)
                         .addField("Servers","``" + event.getJDA().getGuilds().size() + "``", false)
