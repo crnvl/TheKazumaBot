@@ -22,10 +22,10 @@ public class CountingChannelListener extends ListenerAdapter {
                     String cChannel = event.getJDA().getGuildById("519454815806554112").getTextChannelsByName(event.getGuild().getId(), true).get(0).getTopic().replace("#", "").replace("<", "").replace(">", "");
                     if (event.getMessage().getTextChannel().getId().contains(cChannel)) {
 
-                        if (event.getMessage().getContentRaw().startsWith(event.getTextChannel().getTopic())) {
-                            Integer newNUMBER = Integer.valueOf(event.getTextChannel().getTopic());
+                        if (event.getMessage().getContentRaw().startsWith(event.getJDA().getGuildById("521278542063992832").getTextChannelsByName(event.getGuild().getId(), true).get(0).getTopic())) {
+                            Integer newNUMBER = Integer.valueOf(event.getJDA().getGuildById("521278542063992832").getTextChannelsByName(event.getGuild().getId(), true).get(0).getTopic());
                             newNUMBER++;
-                            event.getTextChannel().getManager().setTopic(String.valueOf(newNUMBER)).queue();
+                            event.getJDA().getGuildById("521278542063992832").getTextChannelsByName(event.getGuild().getId(), true).get(0).getManager().setTopic(String.valueOf(newNUMBER)).queue();
                         } else {
                             event.getMessage().delete().queue();
                             event.getTextChannel().sendMessage(event.getAuthor().getAsMention() + ", the next Message must start with " + event.getTextChannel().getTopic() + "!").queue(s -> s.delete().queueAfter(2, TimeUnit.SECONDS));
