@@ -33,7 +33,7 @@ public class CountingChannelListener extends ListenerAdapter {
 
                     }
                 }catch (Exception e) {
-                    event.getTextChannel().sendMessage("You need to set a start number first! Try ``" + STATIC.PREFIX + "setcountstart``").queue();
+                    event.getTextChannel().sendMessage("There was no counting value in the database. Please set your counting channel again using ``" + STATIC.PREFIX + "setcountchannel``").queue();
                 }
             }
         }
