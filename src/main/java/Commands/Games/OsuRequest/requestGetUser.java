@@ -28,7 +28,7 @@ public class requestGetUser implements Command {
     public void action(String[] args, MessageReceivedEvent event) {
 
         // Create a new Osu object with an API key
-            if(args.length < 2) {
+        if(args.length < 2) {
             event.getTextChannel().sendMessage(
 
                     new EmbedBuilder()
@@ -50,6 +50,7 @@ public class requestGetUser implements Command {
                             new EmbedBuilder()
                                     .setColor(Color.PINK)
                                     .setTitle("Osu profile of " + user.getUsername())
+                                    .addField("Level", "``" + user.getLevel() + "``", false)
                                     .addField("ID", "``" + user.getID() + "``", false)
                                     .addField("Country", "``" + user.getCountry() + "``", true)
                                     .addField("Accuracy", "``" + user.getAccuracy() + "%``", true)
