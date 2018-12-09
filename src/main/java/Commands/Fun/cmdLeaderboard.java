@@ -28,10 +28,9 @@ public class cmdLeaderboard implements Command {
         Map<String, Long> unsortMap = new HashMap<>();
 
 
-        for (int i = 0; i < event.getJDA().getGuildById("521278542063992832").getTextChannels().size(); i++) {
+        for (int i = 0; i < event.getJDA().getGuildById("519454815806554112").getTextChannels().size(); i++) {
             unsortMap.put(event.getJDA().getTextChannelById(event.getJDA().getGuildById("519454815806554112").getTextChannels().get(i).getTopic().replaceAll("[^0-9]", "")).getGuild().getName()
-                    , Long.valueOf(String.valueOf(event.getJDA().getGuildById("521278542063992832").getTextChannels().get(i).getTopic())));
-        }
+                    , Long.valueOf(String.valueOf(event.getJDA().getGuildById("521278542063992832").getTextChannelsByName(event.getJDA().getGuildById("519454815806554112").getTextChannels().get(i).getName(), true).get(0).getTopic())));}
 
 
 
@@ -46,7 +45,8 @@ public class cmdLeaderboard implements Command {
 
         builder.appendDescription("``Counting Leaderboard``\n");
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < values.size(); i++) {
+            if (i <= 5)
             builder.appendDescription(i + 1 + ". **" + set[i] + "** at ``" + values.get(i) + "``\n");
         }
 
