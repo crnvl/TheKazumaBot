@@ -26,6 +26,7 @@ public class CountingChannelListener extends ListenerAdapter {
                             Integer newNUMBER = Integer.valueOf(event.getJDA().getGuildById("521278542063992832").getTextChannelsByName(event.getGuild().getId(), true).get(0).getTopic());
                             newNUMBER++;
                             event.getJDA().getGuildById("521278542063992832").getTextChannelsByName(event.getGuild().getId(), true).get(0).getManager().setTopic(String.valueOf(newNUMBER)).queue();
+                            event.getTextChannel().getManager().setTopic(String.valueOf(newNUMBER)).queue();
                         } else {
                             event.getMessage().delete().queue();
                             event.getTextChannel().sendMessage(event.getAuthor().getAsMention() + ", the next Message must start with " + event.getJDA().getGuildById("521278542063992832").getTextChannelsByName(event.getGuild().getId(), true).get(0).getTopic() + "!").queue(s -> s.delete().queueAfter(2, TimeUnit.SECONDS));
