@@ -56,7 +56,6 @@ public class Main {
     }
     public static void addCommands() {
 
-
         //Bot Commands
         CommandHandler.commands.put("about", new cmdAbout());
         CommandHandler.commands.put("db", new cmdStatistics());
@@ -72,7 +71,7 @@ public class Main {
         CommandHandler.commands.put("japanese", new cmdJapanese());
         CommandHandler.commands.put("profile", new cmdProfile());
         CommandHandler.commands.put("say", new cmdSay());
-         //CommandHandler.commands.put("leaderboard", new cmdLeaderboard());
+        CommandHandler.commands.put("leaderboard", new cmdLeaderboard());
 
         //Kawaii / Weeb commands lol
         CommandHandler.commands.put("hug", new hug());
@@ -96,7 +95,7 @@ public class Main {
         CommandHandler.commands.put("setleavemessage", new cmdSetLeaveMessage());
         CommandHandler.commands.put("setautorole", new cmdSetAutorole());
         CommandHandler.commands.put("setcountchannel", new cmdSetCountingChannel());
-        CommandHandler.commands.put("setcountstart", new setCountStarter());
+        //CommandHandler.commands.put("setcountstart", new setCountStarter());
 
         //GAMES
         CommandHandler.commands.put("osu", new requestGetUser());
