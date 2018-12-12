@@ -23,7 +23,6 @@ public class Tools {
         try {
             BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
             String jsonText = readAll(rd);
-            System.out.println(jsonText);
             JSONArray jsonArray = new JSONArray(jsonText);
             return jsonArray;
         } finally {
