@@ -63,7 +63,7 @@ public class cmdBf implements Command {
     @Override
     public void action(String[] args, MessageReceivedEvent event) {
 
-        if(args[0].length() == 0) {
+        if(args.length == 0) {
 
             event.getTextChannel().sendMessage(
 
