@@ -2,6 +2,7 @@ package Core;
 
 import Commands.*;
 import Commands.BotCmds.cmdAbout;
+import Commands.BotCmds.cmdInvite;
 import Commands.BotCmds.cmdReport;
 import Commands.BotCmds.cmdVote;
 import Commands.DiscordBotsOrg.cmdStatistics;
@@ -55,7 +56,6 @@ public class Main {
 
     }
     public static void addCommands() {
-
         //Bot Commands
         CommandHandler.commands.put("about", new cmdAbout());
         CommandHandler.commands.put("db", new cmdStatistics());
@@ -63,6 +63,7 @@ public class Main {
         CommandHandler.commands.put("help", new cmdHelp());
         CommandHandler.commands.put("vote", new cmdVote());
         CommandHandler.commands.put("report", new cmdReport());
+         CommandHandler.commands.put("invite", new cmdInvite());
 
         //Fun
         CommandHandler.commands.put("8ball", new cmdEightBall());
@@ -72,6 +73,9 @@ public class Main {
         CommandHandler.commands.put("profile", new cmdProfile());
         CommandHandler.commands.put("say", new cmdSay());
         CommandHandler.commands.put("leaderboard", new cmdLeaderboard());
+         CommandHandler.commands.put("brainfuck", new cmdBf());
+         CommandHandler.commands.put("dog", new cmdDog());
+         CommandHandler.commands.put("cat", new cmdCat());
 
         //Kawaii / Weeb commands lol
         CommandHandler.commands.put("hug", new hug());
@@ -104,6 +108,7 @@ public class Main {
 
         //OWNER
         CommandHandler.commands.put("refresh", new cmdOwnerSet());
+
 
 
     }
