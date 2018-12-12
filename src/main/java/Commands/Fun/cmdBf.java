@@ -84,7 +84,7 @@ public class cmdBf implements Command {
                             new EmbedBuilder()
                                     .setColor(Color.CYAN)
                                     .setTitle("Brainfuck code has been compiled!")
-                                    .addField("Input", "```md\n" +
+                                    .addField("Input", "```brainfuck\n" +
                                             args[0] + "```", false)
                                     .addField("Output", "``` <No Output> ```", false)
                                     .build()
@@ -97,7 +97,7 @@ public class cmdBf implements Command {
                             new EmbedBuilder()
                                     .setColor(Color.CYAN)
                                     .setTitle("Brainfuck code has been compiled!")
-                                    .addField("Input", "```md\n" +
+                                    .addField("Input", "```brainfuck\n" +
                                             args[0] + "```", false)
                                     .addField("Output", "```" + evaluateBrainfuck(args[0]) + "```", false)
                                     .build()
