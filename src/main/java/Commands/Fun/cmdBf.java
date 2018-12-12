@@ -77,28 +77,40 @@ public class cmdBf implements Command {
             ).queue();
 
         }else {
-            if (evaluateBrainfuck(args[0]).length() == 0) {
+            try {
+                if (evaluateBrainfuck(args[0]).length() == 0) {
+                    event.getTextChannel().sendMessage(
+
+                            new EmbedBuilder()
+                                    .setColor(Color.CYAN)
+                                    .setTitle("Brainfuck code has been compiled!")
+                                    .addField("Input", "```md\n" +
+                                            args[0] + "```", false)
+                                    .addField("Output", "``` <No Output> ```", false)
+                                    .build()
+
+                    ).queue();
+                } else {
+
+                    event.getTextChannel().sendMessage(
+
+                            new EmbedBuilder()
+                                    .setColor(Color.CYAN)
+                                    .setTitle("Brainfuck code has been compiled!")
+                                    .addField("Input", "```md\n" +
+                                            args[0] + "```", false)
+                                    .addField("Output", "```" + evaluateBrainfuck(args[0]) + "```", false)
+                                    .build()
+
+                    ).queue();
+                }
+            }catch (Exception e) {
                 event.getTextChannel().sendMessage(
 
                         new EmbedBuilder()
-                                .setColor(Color.CYAN)
-                                .setTitle("Brainfuck code has been compiled!")
-                                .addField("Input", "```md\n" +
-                                        args[0] + "```", false)
-                                .addField("Output", "``` <No Output> ```", false)
-                                .build()
-
-                ).queue();
-            } else {
-
-                event.getTextChannel().sendMessage(
-
-                        new EmbedBuilder()
-                                .setColor(Color.CYAN)
-                                .setTitle("Brainfuck code has been compiled!")
-                                .addField("Input", "```md\n" +
-                                        args[0] + "```", false)
-                                .addField("Output", "```" + evaluateBrainfuck(args[0]) + "```", false)
+                                .setColor(Color.RED)
+                                .setTitle("ERROR")
+                                .setDescription("Sorry, I wasn't able to compile this properly. Please try again!")
                                 .build()
 
                 ).queue();
