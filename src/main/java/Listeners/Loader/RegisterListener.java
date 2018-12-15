@@ -3,7 +3,7 @@ package Listeners.Loader;
 import Listeners.Announcements.CountingChannelListener;
 import Listeners.Announcements.MemberChangeListener;
 import Listeners.Cmd.CommandListener;
-import Listeners.GlobalChat.GCListener;
+import Listeners.Globalchat.GCListener;
 import Listeners.Logs.AuditLogListener;
 import Listeners.MentionResponder;
 import Listeners.Private.PrivateResponder;
