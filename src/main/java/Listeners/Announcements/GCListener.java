@@ -29,7 +29,7 @@ public class GCListener extends ListenerAdapter {
                 if (event.getMessage().mentionsEveryone()) {
                     event.getMessage().getTextChannel().sendMessage("You are not allowed to mention everyone!").queue();
                 } else {
-                    for (TextChannel g : event.getJDA().getTextChannelsByName("globalchat", true)) {
+                    for (int i = 0; i < event.getJDA().getGuildById("523536808265383937").getTextChannels().size(); i++) {
 
                         String IMAGE = new String();
                         if (event.getMessage().getAttachments().size() == 0) {
@@ -40,7 +40,7 @@ public class GCListener extends ListenerAdapter {
 
                         if (event.getMessage().getAuthor().getId().contains("265849018662387712")) {
                             try {
-                                out = g.getId();
+                                out = event.getJDA().getGuildById("523536808265383937").getTextChannels().get(i).getTopic();
                                 event.getJDA().getTextChannelById(out).sendMessage(
                                         new EmbedBuilder().setColor(new Color(r, gc, b))
                                                 .setAuthor(event.getMessage().getAuthor().getName() + "#" + event.getMessage().getAuthor().getDiscriminator(), "https://discord.gg/zF8zCXF", event.getMessage().getAuthor().getAvatarUrl())
@@ -54,7 +54,7 @@ public class GCListener extends ListenerAdapter {
                         } else {
                             try {
 
-                                out = g.getId();
+                                out = event.getJDA().getGuildById("523536808265383937").getTextChannels().get(i).getTopic();
                                 event.getJDA().getTextChannelById(out).sendMessage(
                                         new EmbedBuilder().setColor(new Color(r, gc, b))
                                                 .setAuthor(event.getMessage().getAuthor().getName() + "#" + event.getMessage().getAuthor().getDiscriminator(), null, event.getMessage().getAuthor().getAvatarUrl())
