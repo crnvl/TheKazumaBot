@@ -21,7 +21,7 @@ public class cmdHelp implements Command {
                             .setTitle("Commandlist")
                             .setDescription("This is a list of all my current commands! My Prefix is " + STATIC.PREFIX)
                             .addField("Bot Commands", "``about``, ``discordbots``, ``vote``, ``report``, ``invite``", true)
-                            .addField("Moderation Commands", "``setjoinmessage``, ``announcechannel``, ``setleavemessage``, ``setautorole``, ``setcountchannel``", true)
+                            .addField("Moderation Commands", "``setjoinmessage``, ``announcechannel``, ``setleavemessage``, ``setautorole``, ``setcountchannel``, ``setglobalchat``", true)
                             .addField("Fun Commands", "``8ball``, ``ratewaifu``, ``ship``, ``japanese``, ``profile``, ``say``, ``leaderboard``, ``brainfuck``, ``dog``, ``cat``", true)
                             .addField("Kawaii Commands", "``hug``, ``kiss``, ``cuddle``, ``highfive``, ``lick``, ``hello``, ``nom``, ``pat``, ``slap``, ``tickle``, ``nosebleed``, ``dance``, ``baka``, ``cry``", true)
                             .addField("Games", "``osu``, ``paladins``", true)
@@ -499,6 +499,20 @@ public class cmdHelp implements Command {
                     break;
 
                 case "setcountchannel":
+                    event.getTextChannel().sendMessage(
+
+                            new EmbedBuilder()
+                                    .setTitle("Command information")
+                                    .setDescription("Usage: ``" + STATIC.PREFIX + args[0] + " <#channel>``")
+                                    .addField("Required Permission", "``MANAGE_SERVER``", false)
+                                    .addField("Category", "``Moderation Commands``", false)
+                                    .addField("Aliases", "``/``", false)
+                                    .build()
+
+                    ).queue();
+                    break;
+
+                case "setglobalchat":
                     event.getTextChannel().sendMessage(
 
                             new EmbedBuilder()
