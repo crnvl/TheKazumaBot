@@ -100,6 +100,7 @@ public class Main {
         CommandHandler.commands.put("setautorole", new cmdSetAutorole());
         CommandHandler.commands.put("setcountchannel", new cmdSetCountingChannel());
         //CommandHandler.commands.put("setcountstart", new setCountStarter());
+        CommandHandler.commands.put("setglobalchat", new cmdSetGlobalChat());
 
         //GAMES
         CommandHandler.commands.put("osu", new requestGetUser());
