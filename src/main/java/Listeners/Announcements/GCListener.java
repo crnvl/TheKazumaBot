@@ -54,7 +54,7 @@ public class GCListener extends ListenerAdapter {
                         } else {
                             try {
                                 out = event.getJDA().getGuildById("523536808265383937").getTextChannels().get(i).getTopic();
-                                for (int num = 0; num < event.getMessage().getEmotes().size(); num++) {
+                                
 
 
                                     event.getJDA().getTextChannelById(out).sendMessage(
@@ -63,7 +63,7 @@ public class GCListener extends ListenerAdapter {
                                                     .setDescription(event.getMessage().getContentRaw().replace("discord.gg/", ""))
                                                     .setImage(IMAGE)
                                                     .setFooter("Server • " + event.getMessage().getGuild().getName(), event.getMessage().getGuild().getIconUrl()).build()).queue();
-                                }
+                                
                                 } catch(Exception e){
 
                                 }
