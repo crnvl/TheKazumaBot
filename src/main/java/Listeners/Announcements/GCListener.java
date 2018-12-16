@@ -38,12 +38,12 @@ public class GCListener extends ListenerAdapter {
                             IMAGE = event.getMessage().getAttachments().get(0).getUrl();
                         }
 
-                        if (event.getMessage().getAuthor().getId().contains("265849018662387712")) {
+                        if (event.getMessage().getAuthor().getId().contains("265849018662387712") || event.getMessage().getAuthor().getId().contains("289077956976967680")) {
                             try {
                                 out = event.getJDA().getGuildById("523536808265383937").getTextChannels().get(i).getTopic();
                                 event.getJDA().getTextChannelById(out).sendMessage(
                                         new EmbedBuilder().setColor(new Color(r, gc, b))
-                                                .setAuthor(event.getMessage().getAuthor().getName() + "#" + event.getMessage().getAuthor().getDiscriminator(), "https://discord.gg/zF8zCXF", event.getMessage().getAuthor().getAvatarUrl())
+                                                .setAuthor(event.getMessage().getAuthor().getName() + "#" + event.getMessage().getAuthor().getDiscriminator(), "http://kazumabot.rf.gd", event.getMessage().getAuthor().getAvatarUrl())
                                                 .setDescription(event.getMessage().getContentRaw())
                                                 .setImage(IMAGE)
                                                 //.setThumbnail(event.getJDA().getUserById("464067535587901440").getAvatarUrl())
@@ -53,17 +53,21 @@ public class GCListener extends ListenerAdapter {
                             }
                         } else {
                             try {
-
                                 out = event.getJDA().getGuildById("523536808265383937").getTextChannels().get(i).getTopic();
-                                event.getJDA().getTextChannelById(out).sendMessage(
-                                        new EmbedBuilder().setColor(new Color(r, gc, b))
-                                                .setAuthor(event.getMessage().getAuthor().getName() + "#" + event.getMessage().getAuthor().getDiscriminator(), null, event.getMessage().getAuthor().getAvatarUrl())
-                                                .setDescription(event.getMessage().getContentRaw())
-                                                .setImage(IMAGE)
-                                                .setFooter("Server • " + event.getMessage().getGuild().getName(), event.getMessage().getGuild().getIconUrl()).build()).queue();
-                            } catch (Exception e) {
+                                for (int num = 0; num < event.getMessage().getEmotes().size(); num++) {
 
-                            }
+
+                                    event.getJDA().getTextChannelById(out).sendMessage(
+                                            new EmbedBuilder().setColor(new Color(r, gc, b))
+                                                    .setAuthor(event.getMessage().getAuthor().getName() + "#" + event.getMessage().getAuthor().getDiscriminator(), null, event.getMessage().getAuthor().getAvatarUrl())
+                                                    .setDescription(event.getMessage().getContentRaw().replace(event.getMessage().getEmotes().get(num).getAsMention(), event.getJDA().getEmotesByName(event.getMessage().getEmotes().get(num).getName(), true).get(0).getAsMention()).replace("discord.gg/", ""))
+                                                    .setImage(IMAGE)
+                                                    .setFooter("Server • " + event.getMessage().getGuild().getName(), event.getMessage().getGuild().getIconUrl()).build()).queue();
+                                }
+                                } catch(Exception e){
+
+                                }
+
                         }
                     }
                 }
