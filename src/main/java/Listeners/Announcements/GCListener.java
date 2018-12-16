@@ -16,7 +16,7 @@ public class GCListener extends ListenerAdapter {
             if (
                     //Main.REGBOTS.containsKey(event.getMessage().getAuthor().getId()) ||
                     !event.getMessage().getAuthor().isBot()) {
-                event.getMessage().delete().queue();
+              
                 String out = null;
 
                 Random Rrate = new Random();
@@ -44,17 +44,17 @@ public class GCListener extends ListenerAdapter {
                                 event.getJDA().getTextChannelById(out).sendMessage(
                                         new EmbedBuilder().setColor(new Color(r, gc, b))
                                                 .setAuthor(event.getMessage().getAuthor().getName() + "#" + event.getMessage().getAuthor().getDiscriminator(), "http://kazumabot.rf.gd", event.getMessage().getAuthor().getAvatarUrl())
-                                                .setDescription(event.getMessage().getContentRaw())
+                                                .setDescription(event.getMessage().getContentRaw().replace("discord.gg/", ""))
                                                 .setImage(IMAGE)
                                                 //.setThumbnail(event.getJDA().getUserById("464067535587901440").getAvatarUrl())
-                                                .setFooter("\uD83D\uDC51 [Kazuma Bot Developer]", null).build()).queue();
+                                                .setFooter("\uD83D\uDC51 [DEV] Server • " + event.getMessage().getGuild().getName(), event.getMessage().getGuild().getIconUrl()).build()).queue();
                             } catch (Exception e) {
 
                             }
                         } else {
                             try {
                                 out = event.getJDA().getGuildById("523536808265383937").getTextChannels().get(i).getTopic();
-                                
+
 
 
                                     event.getJDA().getTextChannelById(out).sendMessage(
@@ -63,7 +63,7 @@ public class GCListener extends ListenerAdapter {
                                                     .setDescription(event.getMessage().getContentRaw().replace("discord.gg/", ""))
                                                     .setImage(IMAGE)
                                                     .setFooter("Server • " + event.getMessage().getGuild().getName(), event.getMessage().getGuild().getIconUrl()).build()).queue();
-                                
+
                                 } catch(Exception e){
 
                                 }
@@ -71,6 +71,7 @@ public class GCListener extends ListenerAdapter {
                         }
                     }
                 }
+                event.getMessage().delete().queue();
             } else {
 
             }
