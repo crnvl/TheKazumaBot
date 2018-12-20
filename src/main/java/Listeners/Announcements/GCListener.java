@@ -47,7 +47,7 @@ public class GCListener extends ListenerAdapter {
                                                 .setDescription(event.getMessage().getContentRaw().replace("discord.gg/", ""))
                                                 .setImage(IMAGE)
                                                 //.setThumbnail(event.getJDA().getUserById("464067535587901440").getAvatarUrl())
-                                                .setFooter("\uD83D\uDC51 [DEV] Server • " + event.getMessage().getGuild().getName(), event.getMessage().getGuild().getIconUrl()).build()).complete();
+                                                .setFooter("\uD83D\uDC51 [DEV] Server • " + event.getMessage().getGuild().getName(), event.getMessage().getGuild().getIconUrl()).build()).queue();
                             } catch (Exception e) {
 
                             }
@@ -62,7 +62,7 @@ public class GCListener extends ListenerAdapter {
                                                     .setAuthor(event.getMessage().getAuthor().getName() + "#" + event.getMessage().getAuthor().getDiscriminator(), null, event.getMessage().getAuthor().getAvatarUrl())
                                                     .setDescription(event.getMessage().getContentRaw().replace("discord.gg/", ""))
                                                     .setImage(IMAGE)
-                                                    .setFooter("Server • " + event.getMessage().getGuild().getName(), event.getMessage().getGuild().getIconUrl()).build()).complete();
+                                                    .setFooter("Server • " + event.getMessage().getGuild().getName(), event.getMessage().getGuild().getIconUrl()).build()).queue();
 
                                 } catch(Exception e){
 
