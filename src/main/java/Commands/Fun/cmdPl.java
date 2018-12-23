@@ -73,7 +73,7 @@ public class cmdPl implements Command {
                             .setColor(Color.RED)
                             .setTitle("ERROR")
                             .setDescription("You need to add some **Pikalang Code** to the command!")
-                            .addField("Usage", "``" + STATIC.PREFIX + "pikalang ++++[-]``", false)
+                            .addField("Usage", "``" + STATIC.PREFIX + "pikalang pi ka pikachu``", false)
                             .build()
 
             ).queue();
