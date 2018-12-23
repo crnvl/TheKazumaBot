@@ -74,6 +74,7 @@ public class Main {
         CommandHandler.commands.put("say", new cmdSay());
         CommandHandler.commands.put("leaderboard", new cmdLeaderboard());
          CommandHandler.commands.put("brainfuck", new cmdBf());
+CommandHandler.commands.put("pikalang", new cmdPl());
          CommandHandler.commands.put("dog", new cmdDog());
          CommandHandler.commands.put("cat", new cmdCat());
 
