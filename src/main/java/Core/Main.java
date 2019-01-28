@@ -43,7 +43,7 @@ public class Main {
 
 
         try {
-            JDA jda = builder.build();
+            JDA jda = builder.buildBlocking();
         } catch (LoginException e) {
             e.printStackTrace();
         }
