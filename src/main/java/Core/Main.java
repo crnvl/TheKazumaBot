@@ -43,22 +43,16 @@ public class Main {
 
 
         try {
-            JDA jda = builder.buildBlocking();
+            JDA jda = builder.build();
         } catch (LoginException e) {
             e.printStackTrace();
-            builder.setStatus(OnlineStatus.IDLE);
-            builder.setGame(Game.playing("low processing mode | Kazuma will be back soon!"));
-        }   catch (InterruptedException e) {
-            e.printStackTrace();
-            builder.setStatus(OnlineStatus.IDLE);
-            builder.setGame(Game.playing("low processing mode | Kazuma will be back soon!"));
         }
 
     }
     public static void addCommands() {
         //Bot Commands
-        CommandHandler.commands.put("about", new cmdAbout());
-        CommandHandler.commands.put("db", new cmdStatistics());
+       CommandHandler.commands.put("about", new cmdAbout());
+       CommandHandler.commands.put("db", new cmdStatistics());
         CommandHandler.commands.put("discordbots", new cmdStatistics());
         CommandHandler.commands.put("help", new cmdHelp());
         CommandHandler.commands.put("vote", new cmdVote());
@@ -74,7 +68,6 @@ public class Main {
         CommandHandler.commands.put("say", new cmdSay());
         CommandHandler.commands.put("leaderboard", new cmdLeaderboard());
          CommandHandler.commands.put("brainfuck", new cmdBf());
-
          CommandHandler.commands.put("dog", new cmdDog());
          CommandHandler.commands.put("cat", new cmdCat());
 
