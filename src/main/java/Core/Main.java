@@ -17,9 +17,12 @@ import Core.Execute.CommandHandler;
 import Listeners.Loader.RegisterListener;
 import Util.SECRETS;
 import Util.STATIC;
+import net.dv8tion.jda.bot.sharding.DefaultShardManagerBuilder;
 import net.dv8tion.jda.core.*;
 import net.dv8tion.jda.core.entities.Game;
 import javax.security.auth.login.LoginException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Main {
 
