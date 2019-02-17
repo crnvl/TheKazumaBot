@@ -52,7 +52,7 @@
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>LATEST</version>
+            <version>3.6.0_354</version>
         </dependency>
         <dependency>
             <groupId>org.brunocvcunha.jiphy</groupId>
