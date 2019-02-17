@@ -28,12 +28,15 @@ public class Main {
     public static void main(String[] Args) throws LoginException, InterruptedException {
         builder = new JDABuilder(AccountType.BOT);
 
+
+
+
         //Important
         builder.setToken(SECRETS.TOKEN);
 
         //Status
         builder.setStatus(OnlineStatus.ONLINE);
-        builder.setGame(Game.playing("http://kazumabot.rf.gd/ | " + STATIC.PREFIX + "help"));
+        builder.setGame(Game.playing("Loading. . . | " + STATIC.PREFIX + "help"));
 
 
         //Listeners
@@ -41,12 +44,37 @@ public class Main {
 
         addCommands();
 
-
         try {
             JDA jda = builder.buildBlocking();
+            Timer myTimer1 = new Timer();
+            TimerTask task = new TimerTask() {
+                int secondsPassed = 0;
+                @Override
+                public void run() {
+                    switch(secondsPassed){
+                        case 0: jda.getPresence().setGame(Game.playing("http://kazumabot.rf.gd/ | " + STATIC.PREFIX + "help"));
+                            secondsPassed++;
+                            break;
+                        case 1:   jda.getPresence().setGame(Game.playing("with " + jda.getPresence().getJDA().getUsers().size() + " Users! | " + STATIC.PREFIX + "help"));
+                            secondsPassed++;
+                            break;
+                        case 2: jda.getPresence().setGame(Game.playing("on " + jda.getPresence().getJDA().getGuilds().size() + " Guilds! | " + STATIC.PREFIX + "help"));
+                            secondsPassed++;
+                            break;
+                        case 3: jda.getPresence().setGame(Game.listening("Version " + STATIC.VERSION + " | " + STATIC.PREFIX + "help"));
+                            secondsPassed++;
+                            secondsPassed = 0;
+                            break;
+                    }
+                }
+            };
+            myTimer1.schedule(task, 30000, 30000);
         } catch (LoginException e) {
             e.printStackTrace();
+        }   catch (InterruptedException e) {
+            e.printStackTrace();
         }
+
 
     }
     public static void addCommands() {
