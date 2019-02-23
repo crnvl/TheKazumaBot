@@ -33,7 +33,7 @@ public class hello implements Command {
         if (msg.length() < 1) {
             event.getTextChannel().sendMessage(
                     new EmbedBuilder().setColor(Color.RED)
-                            .setDescription("Bitte gib einen Nutzer oder ein Wort an").build()).queue();
+                            .setDescription("You need to specify a user or a word!").build()).queue();
         }else
             event.getTextChannel().sendMessage(
                     new EmbedBuilder().setColor(Color.PINK)
