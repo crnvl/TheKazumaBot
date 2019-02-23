@@ -67,7 +67,7 @@ public class Main {
                         case 2: jda.getPresence().setGame(Game.playing("on " + jda.getPresence().getJDA().getGuilds().size() + " Guilds! | " + STATIC.PREFIX + "help"));
                             secondsPassed++;
                             break;
-                        case 3: jda.getPresence().setGame(Game.listening("Version " + STATIC.VERSION + " | " + STATIC.PREFIX + "help"));
+                        case 3: jda.getPresence().setGame(Game.playing("already claimed your daily? (/k daily)| " + STATIC.PREFIX + "help"));
                             secondsPassed++;
                             secondsPassed = 0;
                             break;
