@@ -22,7 +22,7 @@ public class cmdRedeem implements Command {
                 event.getTextChannel().sendMessage(
                         new EmbedBuilder()
                                 .setTitle("Success!")
-                                .setDescription("You successfully claimed your daily!\n" +
+                                .setDescription("You successfully claimed " + y + " credits!\n" +
                                                 "You can claim your daily every 24 hours!")
                                 .build()
                 ).queue();
@@ -35,7 +35,7 @@ public class cmdRedeem implements Command {
                 event.getTextChannel().sendMessage(
                         new EmbedBuilder()
                                 .setTitle("Success!")
-                                .setDescription("You successfully claimed your daily!\n" +
+                                .setDescription("You successfully claimed " + y + " credits!\n" +
                                         "You can claim your daily every 24 hours!")
                                 .build()
                 ).queue();
