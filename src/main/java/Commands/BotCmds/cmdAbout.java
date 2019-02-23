@@ -21,11 +21,11 @@ public class cmdAbout implements Command {
                         .addField("Developer", "[GitHub](https://www.github.com/shinixsensei-dev/)\n" +
                                 "[Twitter](https://www.twitter.com/shinixsensei/)", true)
                         .addField("System", "Available RAM ``" + Runtime.getRuntime().freeMemory() / mb + "/" + Runtime.getRuntime().maxMemory() / mb + "MB``\n" +
-                                                        "Threads ``" + Runtime.getRuntime().availableProcessors() + "``", true)
+                                                        "Threats ``" + Runtime.getRuntime().availableProcessors() + "``", true)
                         .addField("Version", "``" + STATIC.VERSION + "``", true)
                         .addField("API-Latency", event.getJDA().getPing() + "ms", false)
-                        .addField("Servers","``" + event.getJDA().getGuilds().size() + "``", false)
-                        .addField("Users", "``" + event.getJDA().getUsers().size() + "``", false)
+                        .addField(event.getJDA().getGuilds().size() + " Servers","", false)
+                        .addField(event.getJDA().getUsers().size() +" Users", "", false)
                         .addField("Database Usage",
                                 "**Database 1-WNJM: **``" + event.getJDA().getGuildById("513296609623277599").getTextChannels().size() + "/500``\n" +
                                         "**Database 2-VNLM: **``" + event.getJDA().getGuildById("513297201666064390").getTextChannels().size() + "/500``\n" +
@@ -36,7 +36,8 @@ public class cmdAbout implements Command {
                                         "**Database 7-CC: **``" + event.getJDA().getGuildById("515083259957346304").getTextChannels().size() + "/500``\n" +
                                         "**Database 8-CCH: **``" + event.getJDA().getGuildById("519454815806554112").getTextChannels().size() + "/500``\n" +
                                         "**Database 9-CCN: **``" + event.getJDA().getGuildById("521278542063992832").getTextChannels().size() + "/500``\n" +
-                                        "**Database 10-GCP: **``" + event.getJDA().getGuildById("523536808265383937").getTextChannels().size() + "/500``\n"
+                                        "**Database 10-GCP: **``" + event.getJDA().getGuildById("523536808265383937").getTextChannels().size() + "/500``\n" +
+                                        "**Database 11-C: **``" + event.getJDA().getGuildById("548636655456747521").getTextChannels().size() + "/500``\n"
                                 ,false)
                         .addField("Commandlist", STATIC.PREFIX + "help", false)
                         .addField("Invite me!", "[Add To Your Server](https://discordapp.com/api/oauth2/authorize?client_id=406097711603908621&permissions=21469585838&scope=bot)", true)
