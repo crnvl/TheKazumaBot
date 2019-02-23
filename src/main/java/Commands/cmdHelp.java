@@ -21,6 +21,7 @@ public class cmdHelp implements Command {
                             .setTitle("Commandlist")
                             .setDescription("This is a list of all my current commands! My Prefix is " + STATIC.PREFIX)
                             .addField("Bot Commands", "``about``, ``discordbots``, ``vote``, ``report``, ``invite``", true)
+                            .addField("Social", "``daily``, ``redeem``", true)
                             .addField("Moderation Commands", "``setjoinmessage``, ``announcechannel``, ``setleavemessage``, ``setautorole``, ``setcountchannel``, ``setglobalchat``", true)
                             .addField("Fun Commands", "``8ball``, ``ratewaifu``, ``ship``, ``japanese``, ``profile``, ``say``, ``leaderboard``, ``brainfuck``, ``dog``, ``cat``", true)
                             .addField("Kawaii Commands", "``hug``, ``kiss``, ``cuddle``, ``highfive``, ``lick``, ``hello``, ``nom``, ``pat``, ``slap``, ``tickle``, ``nosebleed``, ``dance``, ``baka``, ``cry``", true)
@@ -33,6 +34,34 @@ public class cmdHelp implements Command {
             ).queue();
         }else {
             switch (args[0]) {
+                case "daily":
+                    event.getTextChannel().sendMessage(
+
+                            new EmbedBuilder()
+                                    .setTitle("Command information")
+                                    .setDescription("Usage: ``" + STATIC.PREFIX + args[0] + "``")
+                                    .addField("Required Permission", "``/``", false)
+                                    .addField("Category", "``Social``", false)
+                                    .addField("Aliases", "``redeem``", false)
+                                    .build()
+
+                    ).queue();
+                    break;
+
+                case "redeem":
+                    event.getTextChannel().sendMessage(
+
+                            new EmbedBuilder()
+                                    .setTitle("Command information")
+                                    .setDescription("Usage: ``" + STATIC.PREFIX + args[0] + "``")
+                                    .addField("Required Permission", "``/``", false)
+                                    .addField("Category", "``Social``", false)
+                                    .addField("Aliases", "``daily``", false)
+                                    .build()
+
+                    ).queue();
+                    break;
+
                 case "about":
                     event.getTextChannel().sendMessage(
 
@@ -215,8 +244,6 @@ public class cmdHelp implements Command {
 
                     ).queue();
                     break;
-                    
-                 
 
                 case "dog":
                     event.getTextChannel().sendMessage(
