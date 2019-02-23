@@ -1,6 +1,8 @@
 package Core;
 
 import Commands.*;
+import Commands.Social.cmdRedeem;
+import Listeners.Loader.ResetService;
 import Commands.BotCmds.cmdAbout;
 import Commands.BotCmds.cmdInvite;
 import Commands.BotCmds.cmdReport;
@@ -43,6 +45,7 @@ public class Main {
 
 
         //Listeners
+        builder.addEventListener(new ResetService());
         builder.addEventListener(new RegisterListener());
 
         addCommands();
@@ -90,6 +93,10 @@ public class Main {
         CommandHandler.commands.put("report", new cmdReport());
          CommandHandler.commands.put("invite", new cmdInvite());
 
+          //Social
+        CommandHandler.commands.put("redeem", new cmdRedeem());
+        CommandHandler.commands.put("daily", new cmdRedeem());
+        
         //Fun
         CommandHandler.commands.put("8ball", new cmdEightBall());
         CommandHandler.commands.put("ratewaifu", new cmdRateWaifu());
