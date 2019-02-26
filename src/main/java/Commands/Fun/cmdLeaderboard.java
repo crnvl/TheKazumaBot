@@ -22,12 +22,12 @@ public class cmdLeaderboard implements Command {
 
                     new EmbedBuilder()
                             .setTitle("Command Usage")
-                            .setDescription("Use ``/k leaderboard counting`` to see the counting leaderboard or use ``/k leaderboard xp`` to see the Experience Points Leaderboard")
+                            .setDescription("What kind of Leaderboard do you want to see? Use ``/k leaderboard [xp/counting/credits]``!")
                             .build()
 
             ).queue();
         }
-
+//515083259957346304
         switch (args[0]) {
             case "counting":
                 Map<String, Long> unsortMap = new HashMap<>();
@@ -63,6 +63,42 @@ public class cmdLeaderboard implements Command {
 
                 event.getTextChannel().sendMessage(builder.build()).queue();
                 break;
+
+            case "credits":
+                Map<String, Long> unsortMapCredits = new HashMap<>();
+
+
+                for (int i = 0; i < event.getJDA().getGuildById("5150832599573463048").getTextChannels().size(); i++) {
+                    try {
+                        //unsortMap.put(event.getJDA().getTextChannelsByName(String.valueOf(event.getJDA().getTextChannelById(event.getJDA().getGuildById("519454815806554112").getTextChannels().get(i).getTopic())), true).get(0).getGuild().getName()
+                        unsortMapCredits.put(event.getJDA().getUserById(event.getJDA().getGuildById("515083259957346304").getTextChannels().get(i).getName()).getName()
+                                , Long.valueOf(event.getJDA().getGuildById("515083259957346304").getTextChannels().get(i).getTopic()));
+                    }catch (Exception e) {
+
+                    }
+                }
+
+
+
+                Map<String, Long> resultCredits = new LinkedHashMap<>();
+                unsortMapCredits.entrySet().stream()
+                        .sorted(Map.Entry.<String, Long>comparingByValue().reversed())
+                        .forEachOrdered(z -> resultCredits.put(z.getKey(), z.getValue()));
+
+                String[] setCredits = resultCredits.keySet().toArray(new String[0]);
+                ArrayList<Long> valuesCredits = new ArrayList<>(resultCredits.values());
+                EmbedBuilder builderCredits = new EmbedBuilder();
+
+                builderCredits.appendDescription("``Credits Leaderboard``\n");
+
+                for (int i = 0; i < valuesCredits.size(); i++) {
+                    if (i <= 4)
+                        builderCredits.appendDescription(i + 1 + ". **" + setCredits[i] + "** owns ``" + valuesCredits.get(i) + " Credits``\n");
+                }
+
+                event.getTextChannel().sendMessage(builderCredits.build()).queue();
+                break;
+
             case "xp":
                 Map<String, Long> unsortMapXP = new HashMap<>();
 
@@ -93,7 +129,7 @@ public class cmdLeaderboard implements Command {
 
                 for (int i = 0; i < valuesXP.size(); i++) {
                     if (i <= 4)
-                        builderXP.appendDescription(i + 1 + ". **" + setXP[i] + "** at ``" + valuesXP.get(i) + "``\n");
+                        builderXP.appendDescription(i + 1 + ". **" + setXP[i] + "** has ``" + valuesXP.get(i) + " XP``\n");
                 }
 
                 event.getTextChannel().sendMessage(builderXP.build()).queue();
