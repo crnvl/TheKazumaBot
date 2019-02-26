@@ -68,7 +68,7 @@ public class cmdLeaderboard implements Command {
                 Map<String, Long> unsortMapCredits = new HashMap<>();
 
 
-                for (int i = 0; i < event.getJDA().getGuildById("5150832599573463048").getTextChannels().size(); i++) {
+                for (int i = 0; i < event.getJDA().getGuildById("515083259957346304").getTextChannels().size(); i++) {
                     try {
                         //unsortMap.put(event.getJDA().getTextChannelsByName(String.valueOf(event.getJDA().getTextChannelById(event.getJDA().getGuildById("519454815806554112").getTextChannels().get(i).getTopic())), true).get(0).getGuild().getName()
                         unsortMapCredits.put(event.getJDA().getUserById(event.getJDA().getGuildById("515083259957346304").getTextChannels().get(i).getName()).getName()
