@@ -23,6 +23,8 @@ import Util.STATIC;
 import net.dv8tion.jda.core.*;
 import net.dv8tion.jda.core.entities.Game;
 import javax.security.auth.login.LoginException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Main {
 
@@ -49,8 +51,33 @@ public class Main {
         addCommands();
 
         try {
-            JDA jda = builder.build();
+            JDA jda = builder.buildBlocking();
+            Timer myTimer1 = new Timer();
+            TimerTask task = new TimerTask() {
+                int secondsPassed = 0;
+                @Override
+                public void run() {
+                    switch(secondsPassed){
+                        case 0: jda.getPresence().setGame(Game.playing("http://kazumabot.rf.gd/ | " + STATIC.PREFIX + "help"));
+                            secondsPassed++;
+                            break;
+                        case 1:   jda.getPresence().setGame(Game.playing("with " + jda.getPresence().getJDA().getUsers().size() + " Users! | " + STATIC.PREFIX + "help"));
+                            secondsPassed++;
+                            break;
+                        case 2: jda.getPresence().setGame(Game.playing("on " + jda.getPresence().getJDA().getGuilds().size() + " Guilds! | " + STATIC.PREFIX + "help"));
+                            secondsPassed++;
+                            break;
+                        case 3: jda.getPresence().setGame(Game.playing("Already claimed your daily? (/k daily) | http://kazumabot.rf.gd/"));
+                            secondsPassed++;
+                            secondsPassed = 0;
+                            break;
+                    }
+                }
+            };
+            myTimer1.schedule(task, 30000, 30000);
         } catch (LoginException e) {
+            e.printStackTrace();
+        }   catch (InterruptedException e) {
             e.printStackTrace();
         }
 
