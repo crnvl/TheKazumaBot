@@ -1,6 +1,7 @@
 package Commands.Fun;
 
 import Commands.Command;
+import Util.STATIC;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
@@ -55,6 +56,7 @@ public class cmdLeaderboard implements Command {
                 EmbedBuilder builder = new EmbedBuilder();
 
                 builder.appendDescription("``Counting Leaderboard``\n");
+                builder.setColor(STATIC.MAIN);
 
                 for (int i = 0; i < values.size(); i++) {
                     if (i <= 4)
@@ -90,13 +92,14 @@ public class cmdLeaderboard implements Command {
                 EmbedBuilder builderCredits = new EmbedBuilder();
 
                 builderCredits.appendDescription("``Credits Leaderboard``\n");
-
+                builderCredits.setColor(STATIC.MAIN);
                 for (int i = 0; i < valuesCredits.size(); i++) {
                     if (i <= 4)
                         builderCredits.appendDescription(i + 1 + ". **" + setCredits[i] + "** owns ``" + valuesCredits.get(i) + " Credits``\n");
                 }
 
-                event.getTextChannel().sendMessage(builderCredits.build()).queue();
+                event.getTextChannel().sendMessage(builderCredits
+                        .build()).queue();
                 break;
 
             case "xp":
@@ -126,7 +129,7 @@ public class cmdLeaderboard implements Command {
 
                 builderXP.appendDescription("``Experience Points Leaderboard``\n");
                 builderXP.setFooter("You earn experience points by writing messages while using a 12h XP Boost. You will receive those boosts by voting (/k vote)", null);
-
+                builderXP.setColor(STATIC.MAIN);
                 for (int i = 0; i < valuesXP.size(); i++) {
                     if (i <= 4)
                         builderXP.appendDescription(i + 1 + ". **" + setXP[i] + "** has ``" + valuesXP.get(i) + " XP``\n");
