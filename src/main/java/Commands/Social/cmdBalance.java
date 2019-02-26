@@ -21,7 +21,7 @@ public class cmdBalance implements Command {
             }
             event.getTextChannel().sendMessage(event.getMessage().getAuthor().getAsMention() + ", **you currently have a balance of " + CREDITS + " Credits!** :yen:").queue();
         }else {
-            if(args.length == 2 && args[1].contains(event.getMessage().getMentionedMembers().get(0).getAsMention())) {
+            if(args.length == 2 && args[0].contains(event.getMessage().getMentionedMembers().get(0).getAsMention())) {
                 int cGive, cHave, cNew, cRest, cGivenNew;
                 String cMember, cId;
                 cId = event.getMessage().getMentionedMembers().get(0).getUser().getId();
