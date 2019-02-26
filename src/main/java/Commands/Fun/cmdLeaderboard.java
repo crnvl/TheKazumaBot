@@ -22,6 +22,7 @@ public class cmdLeaderboard implements Command {
             event.getTextChannel().sendMessage(
 
                     new EmbedBuilder()
+                            .setColor(STATIC.MAIN)
                             .setTitle("Command Usage")
                             .setDescription("What kind of Leaderboard do you want to see? Use ``/k leaderboard [xp/counting/credits]``!")
                             .build()
