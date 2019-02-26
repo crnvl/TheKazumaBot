@@ -32,12 +32,18 @@ public class cmdBalance implements Command {
                     if(event.getJDA().getGuildById("515083259957346304").getTextChannelsByName(cId, true).size() > 0) {
                         cRest = Integer.parseInt(event.getJDA().getGuildById("515083259957346304").getTextChannelsByName(cId, true).get(0).getTopic());
                         cNew = cHave - cGive;
+                        System.out.println("cHave " + cHave);
+                        System.out.println("cGive " + cGive);
+                        System.out.println("cNew " + cNew);
                         cGivenNew = cRest + cGive;
                         event.getJDA().getGuildById("515083259957346304").getTextChannelsByName(event.getAuthor().getId(), true).get(0).getManager().setTopic(String.valueOf(cNew)).queue();
                         event.getJDA().getGuildById("515083259957346304").getTextChannelsByName(cId, true).get(0).getManager().setTopic(String.valueOf(cGivenNew)).queue();
                         event.getTextChannel().sendMessage(event.getAuthor().getAsMention() + ", **gave " + cGive + " Credits to " + cMember + "!**").queue();
                     }else {
                         cNew = cHave - cGive;
+                        System.out.println("cHave " + cHave);
+                        System.out.println("cGive " + cGive);
+                        System.out.println("cNew " + cNew);
                         event.getJDA().getGuildById("515083259957346304").getTextChannelsByName(event.getAuthor().getId(), true).get(0).getManager().setTopic(String.valueOf(cNew)).queue();
                         event.getJDA().getGuildById("515083259957346304").getController().createTextChannel(cId).setTopic(String.valueOf(cGive)).queue();
                         event.getTextChannel().sendMessage(event.getAuthor().getAsMention() + ", **gave " + cGive + " Credits to " + cMember + "!**").queue();
