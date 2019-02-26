@@ -28,7 +28,7 @@ public class cmdBalance implements Command {
                 cMember = event.getMessage().getMentionedMembers().get(0).getAsMention();
                 cGive = Integer.parseInt(args[1]);
                 cHave = Integer.parseInt(event.getJDA().getGuildById("515083259957346304").getTextChannelsByName(event.getAuthor().getId(), true).get(0).getTopic());
-                if(cGive - cHave < 0) {
+                if(cGive - cHave > 0) {
                     if(event.getJDA().getGuildById("515083259957346304").getTextChannelsByName(cId, true).size() > 0) {
                         cRest = Integer.parseInt(event.getJDA().getGuildById("515083259957346304").getTextChannelsByName(cId, true).get(0).getTopic());
                         cNew = cHave - cGive;
