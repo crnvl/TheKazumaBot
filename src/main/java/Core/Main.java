@@ -1,8 +1,6 @@
 package Core;
 
 import Commands.*;
-import Commands.Social.cmdRedeem;
-import Listeners.Loader.ResetService;
 import Commands.BotCmds.cmdAbout;
 import Commands.BotCmds.cmdInvite;
 import Commands.BotCmds.cmdReport;
@@ -15,16 +13,16 @@ import Commands.Kawaii.*;
 import Commands.Language.cmdJapanese;
 import Commands.Moderation.*;
 import Commands.Owner.cmdOwnerSet;
+import Commands.Social.cmdBalance;
+import Commands.Social.cmdRedeem;
 import Core.Execute.CommandHandler;
 import Listeners.Loader.RegisterListener;
+import Listeners.Loader.ResetService;
 import Util.SECRETS;
 import Util.STATIC;
-import net.dv8tion.jda.bot.sharding.DefaultShardManagerBuilder;
 import net.dv8tion.jda.core.*;
 import net.dv8tion.jda.core.entities.Game;
 import javax.security.auth.login.LoginException;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class Main {
 
@@ -51,33 +49,8 @@ public class Main {
         addCommands();
 
         try {
-            JDA jda = builder.buildBlocking();
-            Timer myTimer1 = new Timer();
-            TimerTask task = new TimerTask() {
-                int secondsPassed = 0;
-                @Override
-                public void run() {
-                    switch(secondsPassed){
-                        case 0: jda.getPresence().setGame(Game.playing("http://kazumabot.rf.gd/ | " + STATIC.PREFIX + "help"));
-                            secondsPassed++;
-                            break;
-                        case 1:   jda.getPresence().setGame(Game.playing("with " + jda.getPresence().getJDA().getUsers().size() + " Users! | " + STATIC.PREFIX + "help"));
-                            secondsPassed++;
-                            break;
-                        case 2: jda.getPresence().setGame(Game.playing("on " + jda.getPresence().getJDA().getGuilds().size() + " Guilds! | " + STATIC.PREFIX + "help"));
-                            secondsPassed++;
-                            break;
-                        case 3: jda.getPresence().setGame(Game.playing("already claimed your daily? (/k daily)| " + STATIC.PREFIX + "help"));
-                            secondsPassed++;
-                            secondsPassed = 0;
-                            break;
-                    }
-                }
-            };
-            myTimer1.schedule(task, 30000, 30000);
+            JDA jda = builder.build();
         } catch (LoginException e) {
-            e.printStackTrace();
-        }   catch (InterruptedException e) {
             e.printStackTrace();
         }
 
@@ -86,17 +59,22 @@ public class Main {
     public static void addCommands() {
         //Bot Commands
        CommandHandler.commands.put("about", new cmdAbout());
-       CommandHandler.commands.put("db", new cmdStatistics());
+      CommandHandler.commands.put("db", new cmdStatistics());
         CommandHandler.commands.put("discordbots", new cmdStatistics());
+        //new design
         CommandHandler.commands.put("help", new cmdHelp());
         CommandHandler.commands.put("vote", new cmdVote());
         CommandHandler.commands.put("report", new cmdReport());
          CommandHandler.commands.put("invite", new cmdInvite());
 
-          //Social
+         //Social
+        //new design
         CommandHandler.commands.put("redeem", new cmdRedeem());
+        //new design
         CommandHandler.commands.put("daily", new cmdRedeem());
-        
+        //new design
+        CommandHandler.commands.put("balance", new cmdBalance());
+
         //Fun
         CommandHandler.commands.put("8ball", new cmdEightBall());
         CommandHandler.commands.put("ratewaifu", new cmdRateWaifu());
@@ -141,6 +119,9 @@ public class Main {
 
         //OWNER
         CommandHandler.commands.put("refresh", new cmdOwnerSet());
+
+        //TEST
+        //CommandHandler.commands.put("backup", new cmdBackup());
 
 
 
