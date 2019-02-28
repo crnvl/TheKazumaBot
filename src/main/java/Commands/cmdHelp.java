@@ -40,7 +40,7 @@ public class cmdHelp implements Command {
                             new EmbedBuilder()
                                     .setColor(STATIC.MAIN)
                                     .setTitle("Command information")
-                                    .setDescription("Usage: ``" + STATIC.PREFIX + args[0] + "``")
+                                    .setDescription("Usage: ``" + STATIC.PREFIX + args[0] + " <text>``")
                                     .addField("Required Permission", "``/``", false)
                                     .addField("Category", "``Fun``", false)
                                     .addField("Aliases", "``/``", false)
