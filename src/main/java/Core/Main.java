@@ -16,6 +16,7 @@ import Commands.Owner.cmdOwnerSet;
 import Commands.Social.cmdBalance;
 import Commands.Social.cmdRedeem;
 import Core.Execute.CommandHandler;
+import Listeners.Loader.ListRefresh;
 import Listeners.Loader.RegisterListener;
 import Listeners.Loader.ResetService;
 import Util.SECRETS;
@@ -47,6 +48,7 @@ public class Main {
         //Listeners
         builder.addEventListener(new ResetService());
         builder.addEventListener(new RegisterListener());
+        builder.addEventListener(new ListRefresh());
 
         addCommands();
 
@@ -113,6 +115,8 @@ public class Main {
          CommandHandler.commands.put("brainfuck", new cmdBf());
          CommandHandler.commands.put("dog", new cmdDog());
          CommandHandler.commands.put("cat", new cmdCat());
+         CommandHandler.commands.put("neko", new cmdNeko());
+         CommandHandler.commands.put("owofy", new cmdOwofy());
 
         //Kawaii / Weeb commands lol
         CommandHandler.commands.put("hug", new hug());
