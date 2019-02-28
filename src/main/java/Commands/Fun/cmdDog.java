@@ -1,6 +1,7 @@
 package Commands.Fun;
 
 import Commands.Command;
+import Util.STATIC;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
@@ -25,7 +26,7 @@ public class cmdDog implements Command {
             InputStream is = con.getInputStream();
             url = con.getURL();
             is.close();
-            EmbedBuilder builder = new EmbedBuilder().setTitle("a dog for " + event.getMessage().getAuthor().getName()).setImage(url.toString()).setColor(Color.YELLOW);
+            EmbedBuilder builder = new EmbedBuilder().setColor(STATIC.MAIN).setTitle("a dog for " + event.getMessage().getAuthor().getName()).setImage(url.toString()).setColor(Color.YELLOW);
             event.getTextChannel().sendMessage(builder.build()).queue();
         } catch (IOException e) {
             e.printStackTrace();
