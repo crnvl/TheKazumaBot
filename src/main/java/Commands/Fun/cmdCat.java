@@ -1,6 +1,7 @@
 package Commands.Fun;
 
 import Commands.Command;
+import Util.STATIC;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import org.json.JSONArray;
@@ -26,7 +27,7 @@ public class cmdCat implements Command {
                 JSONObject jsonobject = jsonArray.getJSONObject(i);
                 url = jsonobject.getString("url");
             }
-            EmbedBuilder builder = new EmbedBuilder().setTitle("a cat for " + event.getMessage().getAuthor().getName()).setImage(url).setColor(Color.YELLOW);
+            EmbedBuilder builder = new EmbedBuilder().setColor(STATIC.MAIN).setTitle("A cat for " + event.getMessage().getAuthor().getName()).setImage(url).setColor(Color.YELLOW);
             event.getTextChannel().sendMessage(builder.build()).queue();
         } catch (IOException e) {
             e.printStackTrace();
