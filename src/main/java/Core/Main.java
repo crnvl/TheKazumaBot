@@ -69,7 +69,7 @@ public class Main {
                         case 2: jda.getPresence().setGame(Game.playing("on " + jda.getPresence().getJDA().getGuilds().size() + " Guilds! | " + STATIC.PREFIX + "help"));
                             secondsPassed++;
                             break;
-                        case 3: jda.getPresence().setGame(Game.playing("Already claimed your daily? (/k daily) | http://kazumabot.rf.gd/"));
+                        case 3: jda.getPresence().setGame(Game.playing("ever used \"/k neko\"? | http://kazumabot.rf.gd/"));
                             secondsPassed++;
                             secondsPassed = 0;
                             break;
@@ -113,9 +113,13 @@ public class Main {
         CommandHandler.commands.put("say", new cmdSay());
         CommandHandler.commands.put("leaderboard", new cmdLeaderboard());
          CommandHandler.commands.put("brainfuck", new cmdBf());
+        //new design
          CommandHandler.commands.put("dog", new cmdDog());
+        //new design
          CommandHandler.commands.put("cat", new cmdCat());
+        //new design
          CommandHandler.commands.put("neko", new cmdNeko());
+        //new design
          CommandHandler.commands.put("owofy", new cmdOwofy());
 
         //Kawaii / Weeb commands lol
