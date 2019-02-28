@@ -40,7 +40,7 @@ public class cmdAbout implements Command {
                                         "**Database 11-C: **``" + event.getJDA().getGuildById("548636655456747521").getTextChannels().size() + "/500``\n"
                                 ,false)
                         .addField("Commandlist", STATIC.PREFIX + "help", false)
-                        .addField("Invite me!", "[Add To Your Server](http://kazumabot.rf.gd/invite)", true)
+                        .addField("Invite me!", "[Add To Your Server](https://bit.ly/kazumabot)", true)
                         .addField("Support Server", "[Click to Join](https://discord.gg/fyJ6PFj)", true)
                         .addField("Vote for me!", "[Vote on discordbots.org](https://discordbots.org/bot/406097711603908621)", false)
                         .addField("GitHub", "https://github.com/shinixsensei-dev/TheKazumaBot", true)
