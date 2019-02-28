@@ -21,7 +21,7 @@ public class cmdAbout implements Command {
                         .addField("Developer", "[GitHub](https://www.github.com/shinixsensei-dev/)\n" +
                                 "[Twitter](https://www.twitter.com/shinixsensei/)", true)
                         .addField("System", "Available RAM ``" + Runtime.getRuntime().freeMemory() / mb + "/" + Runtime.getRuntime().maxMemory() / mb + "MB``\n" +
-                                                        "Threads ``" + Runtime.getRuntime().availableProcessors() + "``", true)
+                                                        "Threats ``" + Runtime.getRuntime().availableProcessors() + "``", true)
                         .addField("Version", "``" + STATIC.VERSION + "``", true)
                         .addField("API-Latency", event.getJDA().getPing() + "ms", false)
                         .addField(event.getJDA().getGuilds().size() + " Servers","", false)
@@ -40,7 +40,7 @@ public class cmdAbout implements Command {
                                         "**Database 11-C: **``" + event.getJDA().getGuildById("548636655456747521").getTextChannels().size() + "/500``\n"
                                 ,false)
                         .addField("Commandlist", STATIC.PREFIX + "help", false)
-                        .addField("Invite me!", "[Add To Your Server](https://discordapp.com/api/oauth2/authorize?client_id=406097711603908621&permissions=21469585838&scope=bot)", true)
+                        .addField("Invite me!", "[Add To Your Server](http://kazumabot.rf.gd/invite)", true)
                         .addField("Support Server", "[Click to Join](https://discord.gg/fyJ6PFj)", true)
                         .addField("Vote for me!", "[Vote on discordbots.org](https://discordbots.org/bot/406097711603908621)", false)
                         .addField("GitHub", "https://github.com/shinixsensei-dev/TheKazumaBot", true)
