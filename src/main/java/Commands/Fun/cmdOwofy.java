@@ -22,8 +22,9 @@ public class cmdOwofy implements Command {
         if(args.length != 0) {
             TextProvider textProvider = api.getTextProvider();
             String messageGet = event.getMessage().getContentRaw().replace("/k owofy", "");
+            System.out.println(messageGet);
             textProvider.owoifyText(messageGet).async(text -> {
-                event.getTextChannel().sendMessage("**" + text + "**").queue();
+                event.getTextChannel().sendMessage( event.getAuthor().getAsMention() + ", your Text is: **" + text + "**").queue();
             });
         }else {
             event.getTextChannel().sendMessage(
