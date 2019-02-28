@@ -26,7 +26,7 @@ public class cmdDog implements Command {
             InputStream is = con.getInputStream();
             url = con.getURL();
             is.close();
-            EmbedBuilder builder = new EmbedBuilder().setColor(STATIC.MAIN).setTitle("a dog for " + event.getMessage().getAuthor().getName()).setImage(url.toString()).setColor(Color.YELLOW);
+            EmbedBuilder builder = new EmbedBuilder().setColor(STATIC.MAIN).setTitle("a dog for " + event.getMessage().getAuthor().getName()).setImage(url.toString());
             event.getTextChannel().sendMessage(builder.build()).queue();
         } catch (IOException e) {
             e.printStackTrace();
