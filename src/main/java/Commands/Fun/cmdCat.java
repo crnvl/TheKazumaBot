@@ -27,7 +27,7 @@ public class cmdCat implements Command {
                 JSONObject jsonobject = jsonArray.getJSONObject(i);
                 url = jsonobject.getString("url");
             }
-            EmbedBuilder builder = new EmbedBuilder().setColor(STATIC.MAIN).setTitle("A cat for " + event.getMessage().getAuthor().getName()).setImage(url).setColor(Color.YELLOW);
+            EmbedBuilder builder = new EmbedBuilder().setColor(STATIC.MAIN).setTitle("A cat for " + event.getMessage().getAuthor().getName()).setImage(url);
             event.getTextChannel().sendMessage(builder.build()).queue();
         } catch (IOException e) {
             e.printStackTrace();
