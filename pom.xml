@@ -84,6 +84,11 @@
             <artifactId>PaladinsAPI</artifactId>
             <version>LATEST</version>
         </dependency>
+              <dependency>
+            <groupId>pw.aru.api</groupId>
+            <artifactId>nekos4j</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 
 
