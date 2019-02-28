@@ -21,8 +21,7 @@ public class cmdOwofy implements Command {
         Nekos4J api = new Nekos4J.Builder().build();
         if(args.length != 0) {
             TextProvider textProvider = api.getTextProvider();
-            String messageGet = event.getMessage().getContentRaw().replace(STATIC.PREFIX + " owofy", "");
-            System.out.println(messageGet);
+            String messageGet = event.getMessage().getContentRaw().replace("/k owofy", "");
             textProvider.owoifyText(messageGet).async(text -> {
                 event.getTextChannel().sendMessage("**" + text + "**").queue();
             });
