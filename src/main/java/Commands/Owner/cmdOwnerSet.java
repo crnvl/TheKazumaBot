@@ -22,7 +22,7 @@ public class cmdOwnerSet implements Command {
     public void action(String[] args, MessageReceivedEvent event) {
         if(event.getAuthor().getId().contains("265849018662387712")) {
             event.getJDA().getGuildById("552539681212989450").getController().createTextChannel(args[0]).queue();
-            event.getTextChannel().sendMessage(event.getJDA().getUserById(args[0]) + " with the ID " + args[0] + " has been registered for the Global Chat!").queue();
+            event.getTextChannel().sendMessage(event.getJDA().getUserById(args[0]).getName() + " with the ID " + args[0] + " has been registered for the Global Chat!").queue();
 
 
         }
