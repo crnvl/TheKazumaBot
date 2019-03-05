@@ -16,7 +16,7 @@ public class GCListener extends ListenerAdapter {
             if (
 
                     //Main.REGBOTS.containsKey(event.getMessage().getAuthor().getId()) ||
-                    !event.getMessage().getAuthor().isBot() && event.getJDA().getGuildById("552539681212989450").getTextChannelsByName(event.getAuthor().getId(), true).size() == 0) {
+                    !event.getMessage().getAuthor().isBot() || event.getJDA().getGuildById("552539681212989450").getTextChannelsByName(event.getAuthor().getId(), true).size() != 0) {
 
                 String out = null;
 
