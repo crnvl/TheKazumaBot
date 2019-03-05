@@ -4,13 +4,17 @@ import Commands.Command;
 import Util.STATIC;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import org.discordbots.api.client.DiscordBotListAPI;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.time.format.DateTimeFormatter;
 
-public class cmdLeaderboard implements Command {
+public class cmdProfile implements Command {
+
+    DiscordBotListAPI api = new DiscordBotListAPI.Builder()
+            .token(System.getenv("DB_TOKEN"))
+            .botId("406097711603908621")
+            .build();
+
     @Override
     public boolean called(String[] args, MessageReceivedEvent event) {
         return false;
@@ -18,128 +22,164 @@ public class cmdLeaderboard implements Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent event) {
-        if(args.length < 1) {
+
+
+
+        if(args.length == 0) {
+            String SET, XP, CREDITS;
+            if(event.getJDA().getGuildById("515083259957346304").getTextChannelsByName(event.getAuthor().getId(), true).size() == 0) {
+                CREDITS = "0";
+            }else {
+               CREDITS = event.getJDA().getGuildById("515083259957346304").getTextChannelsByName(event.getAuthor().getId(), true).get(0).getTopic();
+            }
+            if (event.getJDA().getGuildById("514431614210670592").getTextChannelsByName(event.getAuthor().getId(), true).size() == 0){
+                SET = "None";
+            }else {
+                SET = event.getJDA().getGuildById("514431614210670592").getTextChannelsByName(event.getAuthor().getId(), true).get(0).getTopic();
+            }
+            if(event.getJDA().getGuildById("514460308488716288").getTextChannelsByName(event.getAuthor().getId(), true).size() == 0) {
+                XP = "0";
+            }else {
+                int VALUE = Integer.parseInt(event.getJDA().getGuildById("514460308488716288").getTextChannelsByName(event.getAuthor().getId(), true).get(0).getTopic());
+                XP = String.valueOf(VALUE);
+            }
+            String userId = event.getAuthor().getId(); // ID of the user you're checking
+            api.hasVoted(userId).whenComplete((hasVoted, e) -> {
+                if (hasVoted){
+                    event.getTextChannel().sendMessage(
+
+                            new EmbedBuilder()
+                                    .setColor(STATIC.MAIN)
+                                    .setTitle(event.getMessage().getAuthor().getName() + "'s Profile Card")
+                                    .addField(":star: Status", SET, true)
+                                    .addField("Birthday", event.getAuthor().getCreationTime().format(DateTimeFormatter.RFC_1123_DATE_TIME), true)
+                                    .addField("Server Join", event.getMember().getJoinDate().format(DateTimeFormatter.RFC_1123_DATE_TIME), true)
+                                    .addField("Level", XP + " XP", true)
+                                    .addField("Your Balance", CREDITS + " Credits", true)
+                                    .setThumbnail(event.getAuthor().getAvatarUrl())
+                                    .build()
+
+                    ).queue();
+                }else {
+                    event.getTextChannel().sendMessage(
+
+                            new EmbedBuilder()
+                                    .setColor(STATIC.MAIN)
+                                    .setTitle(event.getMessage().getAuthor().getName() + "'s Profile Card")
+                                    .addField(":star: Status", SET, true)
+                                    .addField("Birthday", event.getAuthor().getCreationTime().format(DateTimeFormatter.RFC_1123_DATE_TIME), true)
+                                    .addField("Server Join", event.getMember().getJoinDate().format(DateTimeFormatter.RFC_1123_DATE_TIME), true)
+                                    .addField("Level", XP + " XP", true)
+                                    .addField("Your Balance", CREDITS + " Credits", true)
+                                    .addField("Vote", "[Click for extended features!](https://discordbots.org/bot/406097711603908621/vote)", true)
+                                    .setThumbnail(event.getAuthor().getAvatarUrl())
+                                    .setFooter("You need to vote to earn XP for 12h or to set your profile status!", null)
+                                    .build()
+
+                    ).queue();
+                }});
+
+
+        }else {
+            switch (args[0]) {
+                case "status":
+                    if(args.length > 1) {
+                        String userId = event.getMessage().getAuthor().getId(); // ID of the user you're checking
+                        api.hasVoted(userId).whenComplete((hasVoted, e) -> {
+                            if (hasVoted) {
+                                String STATUS = event.getMessage().getContentRaw().replace(STATIC.PREFIX + "profile status", "");
+                                if (event.getJDA().getGuildById("514431614210670592").getTextChannelsByName(event.getAuthor().getId(), true).size() == 0) {
+
+                                    event.getJDA().getGuildById("514431614210670592").getController().createTextChannel(event.getAuthor().getId()).setTopic(STATUS).complete();
+
+                                    event.getTextChannel().sendMessage(
+
+                                            new EmbedBuilder()
+                                                    .setColor(STATIC.MAIN)
+                                                    .setTitle("Status set!")
+                                                    .setDescription("You are now able to view your Status on your Profile!")
+                                                    .build()
+
+                                    ).queue();
+
+                                } else {
+
+                                    event.getJDA().getGuildById("514431614210670592").getTextChannelsByName(event.getAuthor().getId(), true).get(0).getManager().setTopic(STATUS).queue();
+
+                                    event.getTextChannel().sendMessage(
+
+                                            new EmbedBuilder()
+                                                    .setColor(STATIC.MAIN)
+                                                    .setTitle("Status set!")
+                                                    .setDescription("You are now able to view your Status on your Profile!")
+                                                    .build()
+
+                                    ).queue();
+
+                                }
+                            } else {
+                                event.getTextChannel().sendMessage(
+
+                                        new EmbedBuilder()
+                                                .setColor(STATIC.MAIN)
+                                                .setTitle("Access denied!")
+                                                .setDescription("You need to vote for this bot to use this Command!\n" +
+                                                        "You can vote [here](https://discordbots.org/bot/406097711603908621/vote)")
+                                                .build()
+
+                                ).queue();
+                            }
+                        });
+                    }else {
+                        event.getTextChannel().sendMessage(
+
+                                new EmbedBuilder()
+                                        .setColor(STATIC.MAIN)
+                                        .setTitle("Error")
+
+                                        .setDescription("You need to set something as your status!")
+
+                                        .build()
+
+                        ).queue();
+                    }
+                    break;
+
+            }
+        }if(event.getMessage().getMentionedMembers().size() == 1) {
+            String SET, XP, CREDITS;
+            if(event.getJDA().getGuildById("515083259957346304").getTextChannelsByName(event.getMessage().getMentionedMembers().get(0).getUser().getId(), true).size() == 0) {
+                CREDITS = "0";
+            }else {
+                CREDITS = event.getJDA().getGuildById("515083259957346304").getTextChannelsByName(event.getMessage().getMentionedMembers().get(0).getUser().getId(), true).get(0).getTopic();
+            }
+            if (event.getJDA().getGuildById("514431614210670592").getTextChannelsByName(event.getMessage().getMentionedMembers().get(0).getUser().getId(), true).size() == 0){
+                SET = "None";
+            }else {
+                SET = event.getJDA().getGuildById("514431614210670592").getTextChannelsByName(event.getMessage().getMentionedMembers().get(0).getUser().getId(), true).get(0).getTopic();
+            }
+            if(event.getJDA().getGuildById("514460308488716288").getTextChannelsByName(event.getMessage().getMentionedMembers().get(0).getUser().getId(), true).size() == 0) {
+                XP = "0";
+            }else {
+                int VALUE = Integer.parseInt(event.getJDA().getGuildById("514460308488716288").getTextChannelsByName(event.getMessage().getMentionedMembers().get(0).getUser().getId(), true).get(0).getTopic());
+                XP = String.valueOf(VALUE);
+            }
             event.getTextChannel().sendMessage(
 
                     new EmbedBuilder()
                             .setColor(STATIC.MAIN)
-                            .setTitle("Command Usage")
-                            .setDescription("What kind of Leaderboard do you want to see? Use ``/k leaderboard [xp/counting/credits]``!")
+                            .setTitle(event.getMessage().getMentionedMembers().get(0).getEffectiveName() + "'s Profile Card")
+                            .addField(":star: Status", SET, true)
+                            .addField("Birthday", event.getMessage().getMentionedMembers().get(0).getUser().getCreationTime().format(DateTimeFormatter.RFC_1123_DATE_TIME), true)
+                            .addField("Server Join", event.getMessage().getMentionedMembers().get(0).getJoinDate().format(DateTimeFormatter.RFC_1123_DATE_TIME), true)
+                            .addField("Level", XP + " XP", true)
+                            .addField("Balance", CREDITS + " Credits", true)
+                            .setThumbnail(event.getMessage().getMentionedMembers().get(0).getUser().getAvatarUrl())
                             .build()
 
             ).queue();
+
         }
-//515083259957346304
-        switch (args[0]) {
-            case "counting":
-                Map<String, Long> unsortMap = new HashMap<>();
-
-
-                for (int i = 0; i < event.getJDA().getGuildById("519454815806554112").getTextChannels().size(); i++) {
-                    try {
-                        //unsortMap.put(event.getJDA().getTextChannelsByName(String.valueOf(event.getJDA().getTextChannelById(event.getJDA().getGuildById("519454815806554112").getTextChannels().get(i).getTopic())), true).get(0).getGuild().getName()
-                        unsortMap.put(event.getJDA().getTextChannelById(event.getJDA().getGuildById("519454815806554112").getTextChannels().get(i).getTopic().replace("<#", "").replace(">", "")).getGuild().getName()
-                                , Long.valueOf(String.valueOf(event.getJDA().getGuildById("521278542063992832").getTextChannelsByName(event.getJDA().getGuildById("519454815806554112").getTextChannels().get(i).getName(), true).get(0).getTopic())));
-                    }catch (Exception e) {
-
-                    }
-                }
-
-
-
-                Map<String, Long> result = new LinkedHashMap<>();
-                unsortMap.entrySet().stream()
-                        .sorted(Map.Entry.<String, Long>comparingByValue().reversed())
-                        .forEachOrdered(z -> result.put(z.getKey(), z.getValue()));
-
-                String[] set = result.keySet().toArray(new String[0]);
-                ArrayList<Long> values = new ArrayList<>(result.values());
-                EmbedBuilder builder = new EmbedBuilder();
-
-                builder.appendDescription("``Counting Leaderboard``\n");
-                builder.setColor(STATIC.MAIN);
-
-                for (int i = 0; i < values.size(); i++) {
-                    if (i <= 4)
-                        builder.appendDescription(i + 1 + ". **" + set[i] + "** at ``" + values.get(i) + "``\n");
-                }
-
-                event.getTextChannel().sendMessage(builder.build()).queue();
-                break;
-
-            case "credits":
-                Map<String, Long> unsortMapCredits = new HashMap<>();
-
-
-                for (int i = 0; i < event.getJDA().getGuildById("515083259957346304").getTextChannels().size(); i++) {
-                    try {
-                        //unsortMap.put(event.getJDA().getTextChannelsByName(String.valueOf(event.getJDA().getTextChannelById(event.getJDA().getGuildById("519454815806554112").getTextChannels().get(i).getTopic())), true).get(0).getGuild().getName()
-                        unsortMapCredits.put(event.getJDA().getUserById(event.getJDA().getGuildById("515083259957346304").getTextChannels().get(i).getName()).getName()
-                                , Long.valueOf(event.getJDA().getGuildById("515083259957346304").getTextChannels().get(i).getTopic()));
-                    }catch (Exception e) {
-
-                    }
-                }
-
-
-
-                Map<String, Long> resultCredits = new LinkedHashMap<>();
-                unsortMapCredits.entrySet().stream()
-                        .sorted(Map.Entry.<String, Long>comparingByValue().reversed())
-                        .forEachOrdered(z -> resultCredits.put(z.getKey(), z.getValue()));
-
-                String[] setCredits = resultCredits.keySet().toArray(new String[0]);
-                ArrayList<Long> valuesCredits = new ArrayList<>(resultCredits.values());
-                EmbedBuilder builderCredits = new EmbedBuilder();
-
-                builderCredits.appendDescription("``Credits Leaderboard``\n");
-                builderCredits.setColor(STATIC.MAIN);
-                for (int i = 0; i < valuesCredits.size(); i++) {
-                    if (i <= 4)
-                        builderCredits.appendDescription(i + 1 + ". **" + setCredits[i] + "** owns ``" + valuesCredits.get(i) + " Credits``\n");
-                }
-
-                event.getTextChannel().sendMessage(builderCredits
-                        .build()).queue();
-                break;
-
-            case "xp":
-                Map<String, Long> unsortMapXP = new HashMap<>();
-
-
-                for (int i = 0; i < event.getJDA().getGuildById("514460308488716288").getTextChannels().size(); i++) {
-                    try {
-                        //unsortMap.put(event.getJDA().getTextChannelsByName(String.valueOf(event.getJDA().getTextChannelById(event.getJDA().getGuildById("519454815806554112").getTextChannels().get(i).getTopic())), true).get(0).getGuild().getName()
-                        unsortMapXP.put(event.getJDA().getUserById(event.getJDA().getGuildById("514460308488716288").getTextChannels().get(i).getName()).getName()
-                                , Long.valueOf(event.getJDA().getGuildById("514460308488716288").getTextChannels().get(i).getTopic()));
-                    }catch (Exception e) {
-
-                    }
-                }
-
-
-
-                Map<String, Long> resultXP = new LinkedHashMap<>();
-                unsortMapXP.entrySet().stream()
-                        .sorted(Map.Entry.<String, Long>comparingByValue().reversed())
-                        .forEachOrdered(z -> resultXP.put(z.getKey(), z.getValue()));
-
-                String[] setXP = resultXP.keySet().toArray(new String[0]);
-                ArrayList<Long> valuesXP = new ArrayList<>(resultXP.values());
-                EmbedBuilder builderXP = new EmbedBuilder();
-
-                builderXP.appendDescription("``Experience Points Leaderboard``\n");
-                builderXP.setFooter("You earn experience points by writing messages while using a 12h XP Boost. You will receive those boosts by voting (/k vote)", null);
-                builderXP.setColor(STATIC.MAIN);
-                for (int i = 0; i < valuesXP.size(); i++) {
-                    if (i <= 4)
-                        builderXP.appendDescription(i + 1 + ". **" + setXP[i] + "** has ``" + valuesXP.get(i) + " XP``\n");
-                }
-
-                event.getTextChannel().sendMessage(builderXP.build()).queue();
-                break;
-        }
-
 
     }
 
