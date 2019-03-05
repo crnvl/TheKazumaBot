@@ -23,6 +23,7 @@ public class cmdSetLeaveMessage implements Command {
                 event.getTextChannel().sendMessage(
 
                         new EmbedBuilder()
+                                .setColor(STATIC.MAIN)
                                 .setTitle("Command Usage")
                                 .setDescription("Use ``" + STATIC.PREFIX + "setleavemessage <your leave message>`` to set a new Leave Message for this Server")
                                 .addField("Example", "``" + STATIC.PREFIX + "setleavemessage %USER% left %SERVER%! We are now %MEMBERCOUNT% Users here!``", true)
@@ -43,6 +44,7 @@ public class cmdSetLeaveMessage implements Command {
                     event.getTextChannel().sendMessage(
 
                             new EmbedBuilder()
+                                    .setColor(STATIC.MAIN)
                                     .setTitle("Leave Message disabled!")
                                     .setDescription("Your Leave Message has been disabled successfully!")
                                     .build()
@@ -52,6 +54,7 @@ public class cmdSetLeaveMessage implements Command {
                     event.getTextChannel().sendMessage(
 
                             new EmbedBuilder()
+                                    .setColor(STATIC.MAIN)
                                     .setTitle("Error")
                                     .setDescription("There was no Leave Message that could have been disabled!")
                                     .build()
@@ -73,6 +76,7 @@ public class cmdSetLeaveMessage implements Command {
                         event.getTextChannel().sendMessage(
 
                                 new EmbedBuilder()
+                                        .setColor(STATIC.MAIN)
                                         .setTitle("Leave Message set!")
                                         .setDescription("No Welcome Message Channel has been set! Please set one using ``" + STATIC.PREFIX + "announcechannel <channel mention>``")
                                         .addField("New Message", "``" + LEAVE_MESSAGE + "``", true)
@@ -85,6 +89,7 @@ public class cmdSetLeaveMessage implements Command {
                         event.getTextChannel().sendMessage(
 
                                 new EmbedBuilder()
+                                        .setColor(STATIC.MAIN)
                                         .setTitle("Leave Message set!")
                                         .setDescription("Leave Messages will appear in " + JOIN_CHANNEL)
                                         .addField("New Message", "``" + LEAVE_MESSAGE + "``", true)
@@ -102,6 +107,7 @@ public class cmdSetLeaveMessage implements Command {
                         event.getTextChannel().sendMessage(
 
                                 new EmbedBuilder()
+                                        .setColor(STATIC.MAIN)
                                         .setTitle("Leave Message set!")
                                         .setDescription("No Welcome Message Channel has been set! Please set one using ``" + STATIC.PREFIX + "announcechannel <channel mention>``")
                                         .addField("New Message", "``" + LEAVE_MESSAGE + "``", true)
@@ -114,6 +120,7 @@ public class cmdSetLeaveMessage implements Command {
                         event.getTextChannel().sendMessage(
 
                                 new EmbedBuilder()
+                                        .setColor(STATIC.MAIN)
                                         .setTitle("Leave Message set!")
                                         .setDescription("Leave Messages will appear in " + JOIN_CHANNEL)
                                         .addField("New Message", "``" + LEAVE_MESSAGE + "``", true)
@@ -131,6 +138,7 @@ public class cmdSetLeaveMessage implements Command {
             event.getTextChannel().sendMessage(
 
                     new EmbedBuilder()
+                            .setColor(STATIC.MAIN)
                             .setTitle("Action denied")
                             .setDescription("You are not able to run this Command!")
                             .addField("Reason", "``Insufficient Permissions``", false)
