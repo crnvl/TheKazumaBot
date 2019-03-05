@@ -14,8 +14,9 @@ public class GCListener extends ListenerAdapter {
 
         if (event.getJDA().getGuildById("523536808265383937").getTextChannelsByName(event.getGuild().getId(), true).size() != 0 && !(event.getMessage().getEmbeds().size() > 0) && event.getJDA().getGuildById("523536808265383937").getTextChannelsByName(event.getGuild().getId(), true).get(0).getTopic().contains(event.getTextChannel().getId())) {
             if (
+
                     //Main.REGBOTS.containsKey(event.getMessage().getAuthor().getId()) ||
-                    !event.getMessage().getAuthor().isBot()) {
+                    !event.getMessage().getAuthor().isBot() && event.getJDA().getGuildById("552539681212989450").getTextChannelsByName(event.getAuthor().getId(), true).size() == 0) {
 
                 String out = null;
 
@@ -43,7 +44,7 @@ public class GCListener extends ListenerAdapter {
                                 out = event.getJDA().getGuildById("523536808265383937").getTextChannels().get(i).getTopic();
                                 event.getJDA().getTextChannelById(out).sendMessage(
                                         new EmbedBuilder().setColor(new Color(r, gc, b))
-                                                .setAuthor(event.getMessage().getAuthor().getName() + "#" + event.getMessage().getAuthor().getDiscriminator(), "http://kazumabot.rf.gd", event.getMessage().getAuthor().getAvatarUrl())
+                                                .setAuthor(event.getMessage().getAuthor().getName() + "#" + event.getMessage().getAuthor().getDiscriminator(), null, event.getMessage().getAuthor().getAvatarUrl())
                                                 .setDescription(event.getMessage().getContentRaw().replace("discord.gg/", ""))
                                                 .setImage(IMAGE)
                                                 //.setThumbnail(event.getJDA().getUserById("464067535587901440").getAvatarUrl())
@@ -51,24 +52,28 @@ public class GCListener extends ListenerAdapter {
                             } catch (Exception e) {
 
                             }
-                        } else {
-                            try {
-                                out = event.getJDA().getGuildById("523536808265383937").getTextChannels().get(i).getTopic();
+
+                            }else{
+                                try {
+                                 out = event.getJDA().getGuildById("523536808265383937").getTextChannels().get(i).getTopic();
 
 
 
-                                    event.getJDA().getTextChannelById(out).sendMessage(
-                                            new EmbedBuilder().setColor(new Color(r, gc, b))
-                                                    .setAuthor(event.getMessage().getAuthor().getName() + "#" + event.getMessage().getAuthor().getDiscriminator(), null, event.getMessage().getAuthor().getAvatarUrl())
-                                                    .setDescription(event.getMessage().getContentRaw().replace("discord.gg/", ""))
-                                                    .setImage(IMAGE)
-                                                    .setFooter("Server • " + event.getMessage().getGuild().getName(), event.getMessage().getGuild().getIconUrl()).build()).queue();
+                                 event.getJDA().getTextChannelById(out).sendMessage(
+                                 new EmbedBuilder().setColor(new Color(r, gc, b))
+                                 .setAuthor(event.getMessage().getAuthor().getName() + "#" + event.getMessage().getAuthor().getDiscriminator(), null, event.getMessage().getAuthor().getAvatarUrl())
+                                 .setDescription(event.getMessage().getContentRaw().replace("discord.gg/", ""))
+                                 .setImage(IMAGE)
+                                 .setFooter("Server • " + event.getMessage().getGuild().getName(), event.getMessage().getGuild().getIconUrl()).build()).queue();
 
-                                } catch(Exception e){
+                                 } catch(Exception e){
 
-                                }
+                                 }
 
+
+                            }
                         }
+
                     }
                 }
                 event.getMessage().delete().queue();
@@ -79,4 +84,3 @@ public class GCListener extends ListenerAdapter {
 
     }
 
-}
