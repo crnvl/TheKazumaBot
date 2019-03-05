@@ -21,6 +21,7 @@ public class cmdSetAutorole implements Command {
                 event.getTextChannel().sendMessage(
 
                         new EmbedBuilder()
+                                .setColor(STATIC.MAIN)
                                 .setTitle("Command Usage")
                                 .setDescription("Use ``" + STATIC.PREFIX + "setautorole <@role>`` to set an autorole for this server! (Don't include ``<`` or ``>``)")
                                 .addField("Example", "``" + STATIC.PREFIX + "setautorole @member``", false)
@@ -40,6 +41,7 @@ public class cmdSetAutorole implements Command {
                     event.getTextChannel().sendMessage(
 
                             new EmbedBuilder()
+                                    .setColor(STATIC.MAIN)
                                     .setTitle("Autorole disabled!")
                                     .setDescription("Your Autorole has been disabled successfully!")
                                     .build()
@@ -56,6 +58,7 @@ public class cmdSetAutorole implements Command {
                     event.getTextChannel().sendMessage(
 
                             new EmbedBuilder()
+                                    .setColor(STATIC.MAIN)
                                     .setTitle("Autorole set!")
                                     .setDescription("Your Autorole has been set successfully!")
                                     .addField("Current Autorole", event.getMessage().getMentionedRoles().get(0).getAsMention(), false)
@@ -68,6 +71,7 @@ public class cmdSetAutorole implements Command {
                     event.getTextChannel().sendMessage(
 
                             new EmbedBuilder()
+                                    .setColor(STATIC.MAIN)
                                     .setTitle("Autorole set!")
                                     .setDescription("Your Autorole has been set successfully!")
                                     .addField("Current Autorole", event.getMessage().getMentionedRoles().get(0).getAsMention(), false)
@@ -83,6 +87,7 @@ public class cmdSetAutorole implements Command {
             event.getTextChannel().sendMessage(
 
                     new EmbedBuilder()
+                            .setColor(STATIC.MAIN)
                             .setTitle("Action denied")
                             .setDescription("You are not able to run this Command!")
                             .addField("Reason", "``Insufficient Permissions``", false)
