@@ -19,6 +19,7 @@ public class cmdReport implements Command {
           event.getTextChannel().sendMessage(
 
                   new EmbedBuilder()
+                          .setColor(STATIC.MAIN)
                           .setTitle("Please describe your Problem!")
                           .setDescription("You need to specify your report!")
                           .build()
@@ -35,6 +36,7 @@ public class cmdReport implements Command {
 
 
                           new EmbedBuilder()
+                                  .setColor(STATIC.MAIN)
                                   .setTitle("New Bug Report | ID: " + ID_OUT)
                                   .setDescription(CONTENT)
                                   .setFooter("This Bug has been reported by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl())
@@ -46,6 +48,7 @@ public class cmdReport implements Command {
           event.getTextChannel().sendMessage(
 
                   new EmbedBuilder()
+                          .setColor(STATIC.MAIN)
                           .setTitle("Bug Reported!")
                           .setDescription("Thank you for reporting your bug! Our Team will take care of it as soon as possible.\n" +
                                             "Join [here](https://discord.gg/fyJ6PFj) to see, when your bug is fixed!")
