@@ -21,6 +21,7 @@ public class cmdSetGlobalChat implements Command {
                 event.getTextChannel().sendMessage(
 
                         new EmbedBuilder()
+                                .setColor(STATIC.MAIN)
                                 .setTitle("Command Usage")
                                 .setDescription("Use ``" + STATIC.PREFIX + "setglobalchat <#channel>`` to set a global chat for this server! (Don't include ``<`` or ``>``)")
                                 .addField("Example", "``" + STATIC.PREFIX + "setglobalchat #global``", false)
@@ -40,6 +41,7 @@ public class cmdSetGlobalChat implements Command {
                     event.getTextChannel().sendMessage(
 
                             new EmbedBuilder()
+                                    .setColor(STATIC.MAIN)
                                     .setTitle("Global Chat disabled!")
                                     .setDescription("Your Global Chat has been disabled successfully!")
                                     .build()
@@ -56,6 +58,7 @@ public class cmdSetGlobalChat implements Command {
                     event.getTextChannel().sendMessage(
 
                             new EmbedBuilder()
+                                    .setColor(STATIC.MAIN)
                                     .setTitle("Global Chat set!")
                                     .setDescription("Your Global Chat has been set successfully!")
                                     .addField("Current Global Chat", event.getMessage().getMentionedChannels().get(0).getAsMention(), false)
@@ -68,6 +71,7 @@ public class cmdSetGlobalChat implements Command {
                     event.getTextChannel().sendMessage(
 
                             new EmbedBuilder()
+                                    .setColor(STATIC.MAIN)
                                     .setTitle("Global Chat set!")
                                     .setDescription("Your Global Chat has been set successfully!")
                                     .addField("Current Global Chat", event.getMessage().getMentionedChannels().get(0).getAsMention(), false)
@@ -84,6 +88,7 @@ public class cmdSetGlobalChat implements Command {
             event.getTextChannel().sendMessage(
 
                     new EmbedBuilder()
+                            .setColor(STATIC.MAIN)
                             .setTitle("Action denied")
                             .setDescription("You are not able to run this Command!")
                             .addField("Reason", "``Insufficient Permissions``", false)
