@@ -48,7 +48,7 @@ public class Main {
         //Listeners
         builder.addEventListener(new ResetService());
         builder.addEventListener(new RegisterListener());
-        builder.addEventListener(new ListRefresh());
+        //builder.addEventListener(new ListRefresh());
 
         addCommands();
 
@@ -153,7 +153,7 @@ public class Main {
 
 
         //OWNER
-        CommandHandler.commands.put("refresh", new cmdOwnerSet());
+        CommandHandler.commands.put("register", new cmdOwnerSet());
 
         //TEST
         //CommandHandler.commands.put("backup", new cmdBackup());
