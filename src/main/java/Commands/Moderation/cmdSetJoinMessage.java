@@ -22,6 +22,7 @@ public class cmdSetJoinMessage implements Command {
                 event.getTextChannel().sendMessage(
 
                         new EmbedBuilder()
+                                .setColor(STATIC.MAIN)
                                 .setTitle("Command Usage")
                                 .setDescription("Use ``" + STATIC.PREFIX + "setjoinmessage <your join message>`` to set a new Join Message for this Server")
                                 .addField("Example", "``" + STATIC.PREFIX + "setjoinmessage Welcome on %SERVER%, %USER%! You are the %MEMBERCOUNT%th User here!``", true)
@@ -42,6 +43,7 @@ public class cmdSetJoinMessage implements Command {
                     event.getTextChannel().sendMessage(
 
                             new EmbedBuilder()
+                                    .setColor(STATIC.MAIN)
                                     .setTitle("Join Message disabled!")
                                     .setDescription("Your Join Message has been disabled successfully!")
                                     .build()
@@ -52,6 +54,7 @@ public class cmdSetJoinMessage implements Command {
                     event.getTextChannel().sendMessage(
 
                             new EmbedBuilder()
+                                    .setColor(STATIC.MAIN)
                                     .setTitle("Error")
                                     .setDescription("There was no Join Message that could have been disabled!")
                                     .build()
@@ -73,6 +76,7 @@ public class cmdSetJoinMessage implements Command {
                         event.getTextChannel().sendMessage(
 
                                 new EmbedBuilder()
+                                        .setColor(STATIC.MAIN)
                                         .setTitle("Join Message set!")
                                         .setDescription("No Welcome Message Channel has been set! Please set one using ``" + STATIC.PREFIX + "announcechannel <channel mention>``")
                                         .addField("New Message", "``" + JOIN_MESSAGE + "``", true)
@@ -85,6 +89,7 @@ public class cmdSetJoinMessage implements Command {
                         event.getTextChannel().sendMessage(
 
                                 new EmbedBuilder()
+                                        .setColor(STATIC.MAIN)
                                         .setTitle("Join Message set!")
                                         .setDescription("Join Messages will appear in " + JOIN_CHANNEL)
                                         .addField("New Message", "``" + JOIN_MESSAGE + "``", true)
@@ -102,6 +107,7 @@ public class cmdSetJoinMessage implements Command {
                         event.getTextChannel().sendMessage(
 
                                 new EmbedBuilder()
+                                        .setColor(STATIC.MAIN)
                                         .setTitle("Join Message set!")
                                         .setDescription("No Welcome Message Channel has been set! Please set one using ``" + STATIC.PREFIX + "announcechannel <channel mention>``")
                                         .addField("New Message", "``" + JOIN_MESSAGE + "``", true)
@@ -114,6 +120,7 @@ public class cmdSetJoinMessage implements Command {
                         event.getTextChannel().sendMessage(
 
                                 new EmbedBuilder()
+                                        .setColor(STATIC.MAIN)
                                         .setTitle("Join Message set!")
                                         .setDescription("Join Messages will appear in " + JOIN_CHANNEL)
                                         .addField("New Message", "``" + JOIN_MESSAGE + "``", true)
@@ -131,6 +138,7 @@ public class cmdSetJoinMessage implements Command {
             event.getTextChannel().sendMessage(
 
                     new EmbedBuilder()
+                            .setColor(STATIC.MAIN)
                             .setTitle("Action denied")
                             .setDescription("You are not able to run this Command!")
                             .addField("Reason", "``Insufficient Permissions``", false)
