@@ -19,11 +19,11 @@ public class cmdSay implements Command {
         event.getTextChannel().sendMessage(
 
                 new EmbedBuilder()
+                        .setColor(STATIC.MAIN)
                         .setDescription(MESSAGE)
                 .build()
 
         ).queue();
-        event.getMessage().delete().queue();
 
     }
 
