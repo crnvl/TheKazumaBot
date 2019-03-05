@@ -22,6 +22,7 @@ public class cmdSetCountingChannel implements Command {
                 event.getTextChannel().sendMessage(
 
                         new EmbedBuilder()
+                                .setColor(STATIC.MAIN)
                                 .setTitle("Command Usage")
                                 .setDescription("Use ``" + STATIC.PREFIX + "setcountchannel <#channel>`` to set a counting channel for this Server")
                                 .addField("Example", "``" + STATIC.PREFIX + "setcountchannel #counting``", true)
@@ -40,6 +41,7 @@ public class cmdSetCountingChannel implements Command {
                     event.getTextChannel().sendMessage(
 
                             new EmbedBuilder()
+                                    .setColor(STATIC.MAIN)
                                     .setTitle("Counting Channel disabled!")
                                     .setDescription("Your Counting Channel has been disabled successfully!")
                                     .build()
@@ -50,6 +52,7 @@ public class cmdSetCountingChannel implements Command {
                     event.getTextChannel().sendMessage(
 
                             new EmbedBuilder()
+                                    .setColor(STATIC.MAIN)
                                     .setTitle("Error")
                                     .setDescription("There was no Counting Channel that could have been disabled!")
                                     .build()
@@ -66,6 +69,7 @@ public class cmdSetCountingChannel implements Command {
                     event.getTextChannel().sendMessage(
 
                             new EmbedBuilder()
+                                    .setColor(STATIC.MAIN)
                                     .setTitle("Counting Channel set!")
                                     .setDescription("Your Counting Channel has been set successfully!")
                                     .addField("Current Counting Channel", event.getMessage().getMentionedChannels().get(0).getAsMention(), false)
@@ -84,6 +88,7 @@ public class cmdSetCountingChannel implements Command {
                     event.getTextChannel().sendMessage(
 
                             new EmbedBuilder()
+                                    .setColor(STATIC.MAIN)
                                     .setTitle("Counting Channel set!")
                                     .setDescription("Your Counting Channel has been set successfully!")
                                     .addField("Current Counting Channel", event.getMessage().getMentionedChannels().get(0).getAsMention(), false)
@@ -100,6 +105,7 @@ public class cmdSetCountingChannel implements Command {
             event.getTextChannel().sendMessage(
 
                     new EmbedBuilder()
+                            .setColor(STATIC.MAIN)
                             .setTitle("Action denied")
                             .setDescription("You are not able to run this Command!")
                             .addField("Reason", "``Insufficient Permissions``", false)
