@@ -1,6 +1,7 @@
 package Commands.BotCmds;
 
 import Commands.Command;
+import Util.STATIC;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
@@ -17,8 +18,9 @@ public class cmdInvite implements Command {
         event.getTextChannel().sendMessage(
 
                 new EmbedBuilder()
+                        .setColor(STATIC.MAIN)
                         .setTitle("Bot Invite")
-                        .setDescription("You can invite me [here](https://bit.ly/kazumabot) or by visiting my [website](http://kazumabot.rf.gd)!")
+                        .setDescription("You can invite me [here](https://bit.ly/kazumabot)!")
                         .build()
 
         ).queue();
