@@ -1,6 +1,7 @@
 package Commands.BotCmds;
 
 import Commands.Command;
+import Util.STATIC;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
@@ -16,6 +17,7 @@ public class cmdVote implements Command {
         event.getTextChannel().sendMessage(
 
                 new EmbedBuilder()
+                        .setColor(STATIC.MAIN)
                         .setTitle("Get more features by voting!")
                         .setDescription("You can click [here](https://discordbots.org/bot/406097711603908621/vote) to vote!")
                         .build()
