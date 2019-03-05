@@ -21,6 +21,7 @@ public class cmdSetAnnouncementChannel implements Command {
                 event.getTextChannel().sendMessage(
 
                         new EmbedBuilder()
+                                .setColor(STATIC.MAIN)
                                 .setTitle("Command Usage")
                                 .setDescription("Use ``" + STATIC.PREFIX + "announcechannel <channel mention>`` to set the Announcement Channel for this Server")
                                 .build()
@@ -33,6 +34,7 @@ public class cmdSetAnnouncementChannel implements Command {
                     event.getTextChannel().sendMessage(
 
                             new EmbedBuilder()
+                                    .setColor(STATIC.MAIN)
                                     .setTitle("Announcements Channel set!")
                                     .setDescription("The new Announcement Channel is " + event.getMessage().getMentionedChannels().get(0).getAsMention() )
                                     .build()
@@ -43,6 +45,7 @@ public class cmdSetAnnouncementChannel implements Command {
                     event.getTextChannel().sendMessage(
 
                             new EmbedBuilder()
+                                    .setColor(STATIC.MAIN)
                                     .setTitle("Announcements Channel set!")
                                     .setDescription("The new Announcement Channel is " + event.getMessage().getMentionedChannels().get(0).getAsMention() )
                                     .build()
@@ -57,6 +60,7 @@ public class cmdSetAnnouncementChannel implements Command {
             event.getTextChannel().sendMessage(
 
                     new EmbedBuilder()
+                            .setColor(STATIC.MAIN)
                             .setTitle("Action denied")
                             .setDescription("You are not able to run this Command!")
                             .addField("Reason", "``Insufficient Permissions``", false)
