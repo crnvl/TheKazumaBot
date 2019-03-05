@@ -49,6 +49,7 @@ public class cmdProfile implements Command {
                     event.getTextChannel().sendMessage(
 
                             new EmbedBuilder()
+                                    .setColor(STATIC.MAIN)
                                     .setTitle(event.getMessage().getAuthor().getName() + "'s Profile Card")
                                     .addField(":star: Status", SET, true)
                                     .addField("Birthday", event.getAuthor().getCreationTime().format(DateTimeFormatter.RFC_1123_DATE_TIME), true)
@@ -63,6 +64,7 @@ public class cmdProfile implements Command {
                     event.getTextChannel().sendMessage(
 
                             new EmbedBuilder()
+                                    .setColor(STATIC.MAIN)
                                     .setTitle(event.getMessage().getAuthor().getName() + "'s Profile Card")
                                     .addField(":star: Status", SET, true)
                                     .addField("Birthday", event.getAuthor().getCreationTime().format(DateTimeFormatter.RFC_1123_DATE_TIME), true)
@@ -93,6 +95,7 @@ public class cmdProfile implements Command {
                                     event.getTextChannel().sendMessage(
 
                                             new EmbedBuilder()
+                                                    .setColor(STATIC.MAIN)
                                                     .setTitle("Status set!")
                                                     .setDescription("You are now able to view your Status on your Profile!")
                                                     .build()
@@ -106,6 +109,7 @@ public class cmdProfile implements Command {
                                     event.getTextChannel().sendMessage(
 
                                             new EmbedBuilder()
+                                                    .setColor(STATIC.MAIN)
                                                     .setTitle("Status set!")
                                                     .setDescription("You are now able to view your Status on your Profile!")
                                                     .build()
@@ -117,6 +121,7 @@ public class cmdProfile implements Command {
                                 event.getTextChannel().sendMessage(
 
                                         new EmbedBuilder()
+                                                .setColor(STATIC.MAIN)
                                                 .setTitle("Access denied!")
                                                 .setDescription("You need to vote for this bot to use this Command!\n" +
                                                         "You can vote [here](https://discordbots.org/bot/406097711603908621/vote)")
@@ -129,6 +134,7 @@ public class cmdProfile implements Command {
                         event.getTextChannel().sendMessage(
 
                                 new EmbedBuilder()
+                                        .setColor(STATIC.MAIN)
                                         .setTitle("Error")
 
                                         .setDescription("You need to set something as your status!")
@@ -161,6 +167,7 @@ public class cmdProfile implements Command {
             event.getTextChannel().sendMessage(
 
                     new EmbedBuilder()
+                            .setColor(STATIC.MAIN)
                             .setTitle(event.getMessage().getMentionedMembers().get(0).getEffectiveName() + "'s Profile Card")
                             .addField(":star: Status", SET, true)
                             .addField("Birthday", event.getMessage().getMentionedMembers().get(0).getUser().getCreationTime().format(DateTimeFormatter.RFC_1123_DATE_TIME), true)
