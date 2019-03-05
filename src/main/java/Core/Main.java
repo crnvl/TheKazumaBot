@@ -48,7 +48,7 @@ public class Main {
         //Listeners
         builder.addEventListener(new ResetService());
         builder.addEventListener(new RegisterListener());
-        //builder.addEventListener(new ListRefresh());
+        builder.addEventListener(new ListRefresh());
 
         addCommands();
 
