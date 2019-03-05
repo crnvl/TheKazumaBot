@@ -32,6 +32,7 @@ public class requestGetUser implements Command {
             event.getTextChannel().sendMessage(
 
                     new EmbedBuilder()
+                            .setColor(STATIC.MAIN)
                             .setTitle("Osu API Exception")
                             .setDescription("Please specify your request! See ``" + STATIC.PREFIX + "help osu`` for more information")
                             .build()
