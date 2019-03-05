@@ -60,7 +60,7 @@ public class Main {
                 @Override
                 public void run() {
                     switch(secondsPassed){
-                        case 0: jda.getPresence().setGame(Game.playing("http://kazumabot.rf.gd/ | " + STATIC.PREFIX + "help"));
+                        case 0: jda.getPresence().setGame(Game.playing(STATIC.PREFIX + "help"));
                             secondsPassed++;
                             break;
                         case 1:   jda.getPresence().setGame(Game.playing("with " + jda.getPresence().getJDA().getUsers().size() + " Users! | " + STATIC.PREFIX + "help"));
@@ -69,7 +69,7 @@ public class Main {
                         case 2: jda.getPresence().setGame(Game.playing("on " + jda.getPresence().getJDA().getGuilds().size() + " Guilds! | " + STATIC.PREFIX + "help"));
                             secondsPassed++;
                             break;
-                        case 3: jda.getPresence().setGame(Game.playing("ever used \"/k neko\"? | http://kazumabot.rf.gd/"));
+                        case 3: jda.getPresence().setGame(Game.playing("ever used \"/k neko\"? | " + STATIC.PREFIX + "help"));
                             secondsPassed++;
                             secondsPassed = 0;
                             break;
