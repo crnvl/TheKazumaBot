@@ -11,10 +11,12 @@ import Commands.Games.OsuRequest.requestGetUser;
 import Commands.Games.PaladinsRequest.requestPaladinsUser;
 import Commands.Kawaii.*;
 import Commands.Language.cmdJapanese;
+import Commands.Math.cmdPrimeFct;
 import Commands.Moderation.*;
 import Commands.Owner.cmdOwnerSet;
 import Commands.Social.cmdBalance;
 import Commands.Social.cmdRedeem;
+import Commands.Social.cmdShop;
 import Core.Execute.CommandHandler;
 import Listeners.Loader.ListRefresh;
 import Listeners.Loader.RegisterListener;
@@ -69,7 +71,7 @@ public class Main {
                         case 2: jda.getPresence().setGame(Game.playing("on " + jda.getPresence().getJDA().getGuilds().size() + " Guilds! | " + STATIC.PREFIX + "help"));
                             secondsPassed++;
                             break;
-                        case 3: jda.getPresence().setGame(Game.playing("ever used \"/k neko\"? | " + STATIC.PREFIX + "help"));
+                        case 3: jda.getPresence().setGame(Game.playing("already visited the shop? (/k shop) | " + STATIC.PREFIX + "help"));
                             secondsPassed++;
                             secondsPassed = 0;
                             break;
@@ -79,29 +81,26 @@ public class Main {
             myTimer1.schedule(task, 30000, 30000);
         } catch (LoginException e) {
             e.printStackTrace();
-        }   catch (InterruptedException e) {
-            e.printStackTrace();
         }
 
 
     }
     public static void addCommands() {
         //Bot Commands
-       CommandHandler.commands.put("about", new cmdAbout());
-      CommandHandler.commands.put("db", new cmdStatistics());
+        CommandHandler.commands.put("randcolor", new cmdRanColor());
+        CommandHandler.commands.put("shop", new cmdShop());
+        CommandHandler.commands.put("primefct", new cmdPrimeFct());
+        CommandHandler.commands.put("about", new cmdAbout());
+        CommandHandler.commands.put("db", new cmdStatistics());
         CommandHandler.commands.put("discordbots", new cmdStatistics());
-        //new design
         CommandHandler.commands.put("help", new cmdHelp());
         CommandHandler.commands.put("vote", new cmdVote());
         CommandHandler.commands.put("report", new cmdReport());
-         CommandHandler.commands.put("invite", new cmdInvite());
+        CommandHandler.commands.put("invite", new cmdInvite());
 
          //Social
-        //new design
         CommandHandler.commands.put("redeem", new cmdRedeem());
-        //new design
         CommandHandler.commands.put("daily", new cmdRedeem());
-        //new design
         CommandHandler.commands.put("balance", new cmdBalance());
 
         //Fun
@@ -112,14 +111,11 @@ public class Main {
         CommandHandler.commands.put("profile", new cmdProfile());
         CommandHandler.commands.put("say", new cmdSay());
         CommandHandler.commands.put("leaderboard", new cmdLeaderboard());
+        CommandHandler.commands.put("lb", new cmdLeaderboard());
          CommandHandler.commands.put("brainfuck", new cmdBf());
-        //new design
          CommandHandler.commands.put("dog", new cmdDog());
-        //new design
          CommandHandler.commands.put("cat", new cmdCat());
-        //new design
          CommandHandler.commands.put("neko", new cmdNeko());
-        //new design
          CommandHandler.commands.put("owofy", new cmdOwofy());
 
         //Kawaii / Weeb commands lol
