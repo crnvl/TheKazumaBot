@@ -18,7 +18,7 @@ public class cmdShop implements Command {
             EmbedBuilder builder = new EmbedBuilder();
             builder.setDescription("__**Colors**__");
             builder.setColor(STATIC.MAIN);
-            builder.setFooter("Use /k buy <item> to buy a color!", null);
+            builder.setFooter("Use /k shop buy <item> to buy a color!", null);
             for (int i = 0; i < event.getJDA().getGuildById("548636655456747521").getEmotes().size(); i++) {
                 builder.addField(event.getJDA().getGuildById("548636655456747521").getEmotes().get(i).getName(), event.getJDA().getGuildById("548636655456747521").getEmotes().get(i).getAsMention() + " - Price: 1000 Credits", true);
             }
