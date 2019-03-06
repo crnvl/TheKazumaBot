@@ -21,9 +21,9 @@ public class cmdHelp implements Command {
                             .setTitle("Commandlist")
                             .setDescription("This is a list of all my current commands! My Prefix is " + STATIC.PREFIX)
                             .addField("Bot Commands", "``about``, ``discordbots``, ``vote``, ``report``, ``invite``", true)
-                            .addField("Social", "``daily``, ``redeem``, ``balance``", true)
+                            .addField("Social", "``daily``, ``redeem``, ``balance``, ``shop``", true)
                             .addField("Moderation Commands", "``setjoinmessage``, ``announcechannel``, ``setleavemessage``, ``setautorole``, ``setcountchannel``, ``setglobalchat``", true)
-                            .addField("Fun Commands", "``8ball``, ``ratewaifu``, ``ship``, ``japanese``, ``profile``, ``say``, ``leaderboard``, ``brainfuck``, ``dog``, ``cat``, ``neko``, ``owofy``", true)
+                            .addField("Fun Commands", "``8ball``, ``ratewaifu``, ``ship``, ``japanese``, ``profile``, ``say``, ``leaderboard``, ``brainfuck``, ``dog``, ``cat``, ``neko``, ``owofy``, ``primefct``, ``randcolor``", true)
                             .addField("Kawaii Commands", "``hug``, ``kiss``, ``cuddle``, ``highfive``, ``lick``, ``hello``, ``nom``, ``pat``, ``slap``, ``tickle``, ``nosebleed``, ``dance``, ``baka``, ``cry``", true)
                             .addField("Games", "``osu``, ``paladins``", true)
                             .addField("Audit Log", "You can create a channel with the name 'kazuma-log' to activate the auditlog", true)
@@ -41,6 +41,51 @@ public class cmdHelp implements Command {
                                     .setColor(STATIC.MAIN)
                                     .setTitle("Command information")
                                     .setDescription("Usage: ``" + STATIC.PREFIX + args[0] + " <text>``")
+                                    .addField("Required Permission", "``/``", false)
+                                    .addField("Category", "``Fun``", false)
+                                    .addField("Aliases", "``/``", false)
+                                    .build()
+
+                    ).queue();
+                    break;
+
+                case "primefct":
+                    event.getTextChannel().sendMessage(
+
+                            new EmbedBuilder()
+                                    .setColor(STATIC.MAIN)
+                                    .setTitle("Command information")
+                                    .setDescription("Usage: ``" + STATIC.PREFIX + args[0] + " <integer>``")
+                                    .addField("Required Permission", "``/``", false)
+                                    .addField("Category", "``Fun``", false)
+                                    .addField("Aliases", "``/``", false)
+                                    .build()
+
+                    ).queue();
+                    break;
+
+                case "randcolor":
+                    event.getTextChannel().sendMessage(
+
+                            new EmbedBuilder()
+                                    .setColor(STATIC.MAIN)
+                                    .setTitle("Command information")
+                                    .setDescription("Usage: ``" + STATIC.PREFIX + args[0] + "``")
+                                    .addField("Required Permission", "``/``", false)
+                                    .addField("Category", "``Fun``", false)
+                                    .addField("Aliases", "``/``", false)
+                                    .build()
+
+                    ).queue();
+                    break;
+
+                case "shop":
+                    event.getTextChannel().sendMessage(
+
+                            new EmbedBuilder()
+                                    .setColor(STATIC.MAIN)
+                                    .setTitle("Command information")
+                                    .setDescription("Usage: ``" + STATIC.PREFIX + args[0] + " (buy <item>)``")
                                     .addField("Required Permission", "``/``", false)
                                     .addField("Category", "``Fun``", false)
                                     .addField("Aliases", "``/``", false)
