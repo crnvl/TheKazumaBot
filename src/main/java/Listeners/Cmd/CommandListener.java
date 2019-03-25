@@ -28,7 +28,7 @@ public class CommandListener extends ListenerAdapter {
                             new EmbedBuilder()
                                     .setTitle(event.getAuthor().getName() + " you are banned from Kazuma")
                                     .setDescription("Due to inappropriate Actions in our Globalchat, you're temporarily banned from acting as a participant. If you want to get your access back, apply on the official discord server")
-                                    .addField("Support", "If this is an error please contact us. [join our sopport server](https://discord.gg/fyJ6PFj)", false).build()
+                                    .addField("Support", "If this is an error please contact us. [join our support server](https://discord.gg/fyJ6PFj)", false).build()
 
 
 
