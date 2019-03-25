@@ -1,23 +1,22 @@
 package Core;
 
-import Commands.*;
-import Commands.BotCmds.cmdAbout;
-import Commands.BotCmds.cmdInvite;
-import Commands.BotCmds.cmdReport;
-import Commands.BotCmds.cmdVote;
+import Commands.BotCmds.*;
 import Commands.DiscordBotsOrg.cmdStatistics;
 import Commands.Fun.*;
 import Commands.Games.OsuRequest.requestGetUser;
 import Commands.Games.PaladinsRequest.requestPaladinsUser;
-import Commands.Kawaii.*;
+import Commands.Kawaii.cuddle;
+import Commands.Kawaii.hug;
+import Commands.Kawaii.kiss;
 import Commands.Language.cmdJapanese;
 import Commands.Math.cmdPrimeFct;
-import Commands.Moderation.*;
 import Commands.Owner.cmdOwnerSet;
 import Commands.Social.cmdBalance;
 import Commands.Social.cmdRedeem;
 import Commands.Social.cmdShop;
+import Commands.cmdHelp;
 import Core.Execute.CommandHandler;
+import Listeners.Cmd.CommandListener;
 import Listeners.Loader.ListRefresh;
 import Listeners.Loader.RegisterListener;
 import Listeners.Loader.ResetService;
@@ -28,6 +27,8 @@ import net.dv8tion.jda.core.entities.Game;
 import javax.security.auth.login.LoginException;
 import java.util.Timer;
 import java.util.TimerTask;
+import Commands.Kawaii.*;
+import Commands.Moderation.*;
 
 public class Main {
 
@@ -51,6 +52,7 @@ public class Main {
         builder.addEventListener(new ResetService());
         builder.addEventListener(new RegisterListener());
         builder.addEventListener(new ListRefresh());
+        builder.addEventListener(new CommandListener());
 
         addCommands();
 
@@ -150,6 +152,7 @@ public class Main {
 
         //OWNER
         CommandHandler.commands.put("register", new cmdOwnerSet());
+        CommandHandler.commands.put("botban", new cmdBotBan());
 
         //TEST
         //CommandHandler.commands.put("backup", new cmdBackup());
