@@ -52,7 +52,6 @@ public class Main {
         builder.addEventListener(new ResetService());
         builder.addEventListener(new RegisterListener());
         builder.addEventListener(new ListRefresh());
-        builder.addEventListener(new CommandListener());
 
         addCommands();
 
