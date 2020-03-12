@@ -9,9 +9,6 @@ Status: Ongoing
 The Bot Prefix is ``/k ``.
 You can use ``/k help`` to get a list of all commands
 
-# Website
-http://kazumabot.rf.gd
-
 ## Invite the bot
 https://bit.ly/kazumabot
 
